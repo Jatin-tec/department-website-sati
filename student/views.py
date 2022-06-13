@@ -69,3 +69,57 @@ class StudentDeleteAPIView(
         super().perform_destroy(instance)
 
 student_delete_view = StudentDeleteAPIView.as_view()
+
+# =========== #
+
+# View StudentClassRoom view    
+class StudentClassRoomDetailAPIView(
+    StaffEditorPermissionMixin,
+    generics.RetrieveAPIView
+    ):
+    queryset = StudentClassRoom.objects.all()
+    serializer_class = StudentClassRoomSerializer    
+    lookup_field = 'uid'
+
+student_classroom_detail_view = StudentClassRoomDetailAPIView.as_view()
+
+# List StudentClassRoom view    
+class StudentClassRoomListCreateAPIView(
+    StaffEditorPermissionMixin,
+    generics.ListCreateAPIView
+    ):
+    queryset = StudentClassRoom.objects.all()
+    serializer_class = StudentClassRoomSerializer
+
+    def perform_create(self, serializer):
+        print(serializer)
+        serializer.save()
+
+student_classroom_list_create_view = StudentClassRoomListCreateAPIView.as_view()
+
+# Update StudentClassRoom view    
+class StudentClassRoomUpdateAPIView(
+    StaffEditorPermissionMixin,
+    generics.UpdateAPIView
+    ):
+    queryset = StudentClassRoom.objects.all()
+    serializer_class = StudentClassRoomSerializer
+
+    def perform_update(self, serializer):
+        instance = serializer.save()
+
+student_classroom_update_view = StudentClassRoomUpdateAPIView.as_view()
+
+# Delete StudentClassRoom view    
+class StudentClassRoomDeleteAPIView(
+    StaffEditorPermissionMixin,
+    generics.DestroyAPIView
+    ):
+    queryset = StudentClassRoom.objects.all()
+    serializer_class = StudentClassRoomSerializer
+    lookup_field = 'uid'
+
+    def perform_destroy(self, instance):
+        super().perform_destroy(instance)
+
+student_classroom_delete_view = StudentClassRoomDeleteAPIView.as_view()

@@ -9,5 +9,9 @@ urlpatterns = [
     path('student', student_views.student_list_create_view, name='student-list'),
 
     #student classroom api
+    path('student-classroom-get/<str:uid>', student_views.student_classroom_detail_view, name='student-classroom-detail'),
+    path('student-classroom-update/<str:uid>', student_views.student_classroom_update_view, name='student-classroom-update'),
+    path('student-classroom-delete/<str:uid>', student_views.student_classroom_delete_view, name='student-classroom-delete'),
+    path('student-classroom', student_views.student_classroom_list_create_view, name='student-classroom-list'),
     
 ]

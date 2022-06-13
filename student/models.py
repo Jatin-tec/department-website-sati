@@ -10,6 +10,7 @@ class Student(models.Model):
     course = models.ForeignKey('department.Course', on_delete=models.CASCADE)
 
 class StudentClassRoom(models.Model):
+    uid = models.CharField(max_length=10, primary_key=True)
     student = models.ForeignKey('Student', on_delete=models.CASCADE)    
     class_room = models.ForeignKey('department.ClassRoom', on_delete=models.CASCADE)
 
