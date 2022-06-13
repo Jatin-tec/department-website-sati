@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -34,6 +35,9 @@ INSTALLED_APPS = [
     'attendance.apps.AttendanceConfig',
     'faculty.apps.FacultyConfig',
     'student.apps.StudentConfig',
+    'department.apps.DepartmentConfig',
+    'rest_framework',
+    'rest_framework.authtoken',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -122,7 +126,30 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#Managing Media
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+auth_classes = [
+        'rest_framework.authentication.SessionAuthentication',
+        'department_website_sati.authentication.TokenAuthentication'
+]
+
+# if DEBUG:
+#     auth_classes = [
+#         'department_website_sati.authentication.TokenAuthentication'
+#     ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': auth_classes,
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        # 'department_website_sati.permissions'
+    ]
+}

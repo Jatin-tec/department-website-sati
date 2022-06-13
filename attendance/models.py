@@ -1,3 +1,7 @@
-from django.db import models
+# from django.db import models
+# from student.models import Student
+# from department.models import *
 
-# Create your models here.
+# class Attendence(models.Model):
+#     teacher = models.ForeignKey('student.Student', on_delete)
+    
