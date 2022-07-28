@@ -70,7 +70,7 @@ class StudentDeleteAPIView(
 
 student_delete_view = StudentDeleteAPIView.as_view()
 
-# =========== #
+    # =========== #
 
 # View StudentClassRoom view    
 class StudentClassRoomDetailAPIView(

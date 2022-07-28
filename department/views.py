@@ -278,3 +278,333 @@ class ClassRoomDetailAPIView(
     lookup_field = 'classRoom_code'
 
 classRoom_detail_view = ClassRoomDetailAPIView.as_view()
+
+# ============= #
+
+# List Assingment view
+class AssingmentListCreateAPIView(
+    StaffEditorPermissionMixin,
+    generics.ListCreateAPIView
+    ):
+    queryset = Assingment.objects.all()
+    serializer_class = AssingmentSerializer
+
+    def perform_create(self, serializer):
+        print(serializer)
+        serializer.save()
+
+assingment_list_create_view = AssingmentListCreateAPIView.as_view()
+
+# Delete Assingment view 
+class AssingmentDeleteAPIView(
+    StaffEditorPermissionMixin,
+    generics.DestroyAPIView
+    ):
+    queryset = Assingment.objects.all()
+    serializer_class = AssingmentSerializer
+    lookup_field = 'primary_key'
+
+    def perform_destroy(self, instance):
+        super().perform_destroy(instance)
+
+assingment_delete_view = AssingmentDeleteAPIView.as_view()
+
+# Update Assingment view 
+class AssingmentUpdateAPIView(
+    StaffEditorPermissionMixin,
+    generics.UpdateAPIView
+    ):
+    queryset = Assingment.objects.all()
+    serializer_class = AssingmentSerializer
+
+    def perform_update(self, serializer):
+        instance = serializer.save()
+
+assingment_update_view = AssingmentUpdateAPIView.as_view()
+
+ 
+# View Assingment view
+class AssingmentDetailAPIView(
+    StaffEditorPermissionMixin,
+    generics.RetrieveAPIView
+    ):
+    queryset = Assingment.objects.all()
+    serializer_class = AssingmentSerializer    
+    lookup_field = 'primary_key'
+
+assingment_detail_view = AssingmentDetailAPIView.as_view()
+
+# ============= #
+
+# List Quiz view
+class QuizListCreateAPIView(
+    StaffEditorPermissionMixin,
+    generics.ListCreateAPIView
+    ):
+    queryset = Quiz.objects.all()
+    serializer_class = QuizSerializer
+
+    def perform_create(self, serializer):
+        print(serializer)
+        serializer.save()
+
+quiz_list_create_view = QuizListCreateAPIView.as_view()
+
+# Delete Quiz view 
+class QuizDeleteAPIView(
+    StaffEditorPermissionMixin,
+    generics.DestroyAPIView
+    ):
+    queryset = Quiz.objects.all()
+    serializer_class = QuizSerializer
+    lookup_field = 'primary_key'
+
+    def perform_destroy(self, instance):
+        super().perform_destroy(instance)
+
+quiz_delete_view = QuizDeleteAPIView.as_view()
+
+# Update Quiz view 
+class QuizUpdateAPIView(
+    StaffEditorPermissionMixin,
+    generics.UpdateAPIView
+    ):
+    queryset = Quiz.objects.all()
+    serializer_class = QuizSerializer
+
+    def perform_update(self, serializer):
+        instance = serializer.save()
+
+quiz_update_view = QuizUpdateAPIView.as_view()
+
+ 
+# View Quiz view
+class QuizDetailAPIView(
+    StaffEditorPermissionMixin,
+    generics.RetrieveAPIView
+    ):
+    queryset = Quiz.objects.all()
+    serializer_class = QuizSerializer    
+    lookup_field = 'primary_key'
+
+quiz_detail_view = QuizDetailAPIView.as_view()
+
+# ============= #
+
+# List SubjectiveQuestions view
+class SubjectiveQuestionsListCreateAPIView(
+    StaffEditorPermissionMixin,
+    generics.ListCreateAPIView
+    ):
+    queryset = Subjective_Questions.objects.all()
+    serializer_class = SubjectiveQuestionsSerializer
+
+    def perform_create(self, serializer):
+        print(serializer)
+        serializer.save()
+
+subjectiveQuestions_list_create_view = SubjectiveQuestionsListCreateAPIView.as_view()
+
+# Delete SubjectiveQuestions view 
+class SubjectiveQuestionsDeleteAPIView(
+    StaffEditorPermissionMixin,
+    generics.DestroyAPIView
+    ):
+    queryset = Subjective_Questions.objects.all()
+    serializer_class = SubjectiveQuestionsSerializer
+    lookup_field = 'primary_key'
+
+    def perform_destroy(self, instance):
+        super().perform_destroy(instance)
+
+subjectiveQuestions_delete_view = SubjectiveQuestionsDeleteAPIView.as_view()
+
+# Update SubjectiveQuestions view 
+class SubjectiveQuestionsUpdateAPIView(
+    StaffEditorPermissionMixin,
+    generics.UpdateAPIView
+    ):
+    queryset = Subjective_Questions.objects.all()
+    serializer_class = SubjectiveQuestionsSerializer
+
+    def perform_update(self, serializer):
+        instance = serializer.save()
+
+subjectiveQuestions_update_view = SubjectiveQuestionsUpdateAPIView.as_view()
+
+ 
+# View SubjectiveQuestions view
+class SubjectiveQuestionsDetailAPIView(
+    StaffEditorPermissionMixin,
+    generics.RetrieveAPIView
+    ):
+    queryset = Subjective_Questions.objects.all()
+    serializer_class = SubjectiveQuestionsSerializer    
+    lookup_field = 'primary_key'
+
+subjectiveQuestions_detail_view = SubjectiveQuestionsDetailAPIView.as_view()
+
+# ============= #
+
+# List MCQ_Questions view
+class MCQ_QuestionsListCreateAPIView(
+    StaffEditorPermissionMixin,
+    generics.ListCreateAPIView
+    ):
+    queryset = MCQ_Question.objects.all()
+    serializer_class = MCQ_QuestionsSerializer
+
+    def perform_create(self, serializer):
+        print(serializer)
+        serializer.save()
+
+mcq_questions_list_create_view = MCQ_QuestionsListCreateAPIView.as_view()
+
+# Delete MCQ_Questions view 
+class MCQ_QuestionsDeleteAPIView(
+    StaffEditorPermissionMixin,
+    generics.DestroyAPIView
+    ):
+    queryset = MCQ_Question.objects.all()
+    serializer_class = MCQ_QuestionsSerializer
+    lookup_field = 'primary_key'
+
+    def perform_destroy(self, instance):
+        super().perform_destroy(instance)
+
+mcq_questions_delete_view = MCQ_QuestionsDeleteAPIView.as_view()
+
+# Update MCQ_Questions view 
+class MCQ_QuestionsUpdateAPIView(
+    StaffEditorPermissionMixin,
+    generics.UpdateAPIView
+    ):
+    queryset = MCQ_Question.objects.all()
+    serializer_class = MCQ_QuestionsSerializer
+
+    def perform_update(self, serializer):
+        instance = serializer.save()
+
+mcq_questions_update_view = MCQ_QuestionsUpdateAPIView.as_view()
+
+ 
+# View MCQ_Questions view
+class MCQ_QuestionsDetailAPIView(
+    StaffEditorPermissionMixin,
+    generics.RetrieveAPIView
+    ):
+    queryset = MCQ_Question.objects.all()
+    serializer_class = MCQ_QuestionsSerializer    
+    lookup_field = 'primary_key'
+
+mcq_questions_detail_view = MCQ_QuestionsDetailAPIView.as_view()
+
+# ============= #
+
+# List MCQ_QuestionsQuiz view
+class MCQ_QuestionsQuizListCreateAPIView(
+    StaffEditorPermissionMixin,
+    generics.ListCreateAPIView
+    ):
+    queryset = MCQ_Question.objects.all()
+    serializer_class = MCQ_QuestionsQuizSerializer
+
+    def perform_create(self, serializer):
+        print(serializer)
+        serializer.save()
+
+mcq_questions_quiz_list_create_view = MCQ_QuestionsQuizListCreateAPIView.as_view()
+
+# Delete MCQ_QuestionsQuiz view 
+class MCQ_QuestionsQuizDeleteAPIView(
+    StaffEditorPermissionMixin,
+    generics.DestroyAPIView
+    ):
+    queryset = MCQ_Question.objects.all()
+    serializer_class = MCQ_QuestionsQuizSerializer
+    lookup_field = 'primary_key'
+
+    def perform_destroy(self, instance):
+        super().perform_destroy(instance)
+
+mcq_questions_quiz_delete_view = MCQ_QuestionsQuizDeleteAPIView.as_view()
+
+# Update MCQ_QuestionsQuiz view 
+class MCQ_QuestionsQuizUpdateAPIView(
+    StaffEditorPermissionMixin,
+    generics.UpdateAPIView
+    ):
+    queryset = MCQ_Question.objects.all()
+    serializer_class = MCQ_QuestionsQuizSerializer
+
+    def perform_update(self, serializer):
+        instance = serializer.save()
+
+mcq_questions_quiz_update_view = MCQ_QuestionsQuizUpdateAPIView.as_view()
+
+ 
+# View MCQ_QuestionsQuiz view
+class MCQ_QuestionsQuizDetailAPIView(
+    StaffEditorPermissionMixin,
+    generics.RetrieveAPIView
+    ):
+    queryset = MCQ_Question.objects.all()
+    serializer_class = MCQ_QuestionsQuizSerializer    
+    lookup_field = 'primary_key'
+
+mcq_questions_quiz_detail_view = MCQ_QuestionsQuizDetailAPIView.as_view()
+
+# ============= #
+
+# List SubjectiveQuestionsQuiz view
+class SubjectiveQuestionsQuizListCreateAPIView(
+    StaffEditorPermissionMixin,
+    generics.ListCreateAPIView
+    ):
+    queryset = MCQ_Question.objects.all()
+    serializer_class = SubjectiveQuestionsQuizSerializer
+
+    def perform_create(self, serializer):
+        print(serializer)
+        serializer.save()
+
+subjective_questions_quiz_list_create_view = SubjectiveQuestionsQuizListCreateAPIView.as_view()
+
+# Delete SubjectiveQuestionsQuiz view 
+class SubjectiveQuestionsQuizDeleteAPIView(
+    StaffEditorPermissionMixin,
+    generics.DestroyAPIView
+    ):
+    queryset = MCQ_Question.objects.all()
+    serializer_class = SubjectiveQuestionsQuizSerializer
+    lookup_field = 'primary_key'
+
+    def perform_destroy(self, instance):
+        super().perform_destroy(instance)
+
+subjective_questions_quiz_delete_view = SubjectiveQuestionsQuizDeleteAPIView.as_view()
+
+# Update SubjectiveQuestionsQuiz view 
+class SubjectiveQuestionsQuizUpdateAPIView(
+    StaffEditorPermissionMixin,
+    generics.UpdateAPIView
+    ):
+    queryset = MCQ_Question.objects.all()
+    serializer_class = SubjectiveQuestionsQuizSerializer
+
+    def perform_update(self, serializer):
+        instance = serializer.save()
+
+subjective_questions_quiz_update_view = SubjectiveQuestionsQuizUpdateAPIView.as_view()
+
+ 
+# View SubjectiveQuestionsQuiz view
+class SubjectiveQuestionsQuizDetailAPIView(
+    StaffEditorPermissionMixin,
+    generics.RetrieveAPIView
+    ):
+    queryset = MCQ_Question.objects.all()
+    serializer_class = SubjectiveQuestionsQuizSerializer    
+    lookup_field = 'primary_key'
+
+subjective_questions_quiz_detail_view = SubjectiveQuestionsQuizDetailAPIView.as_view()

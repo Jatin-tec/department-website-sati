@@ -1,5 +1,5 @@
 from rest_framework import serializers 
-from department.models import Course, Department, Branch, Subject, ClassRoom
+from department.models import Course, Department, Branch, Subject, ClassRoom, Subjective_Questions, MCQ_Question, Assingment, Quiz, SubjectiveQuestionsQuiz, MCQ_QuestionsQuiz
 from rest_framework.reverse import reverse
 
 class CourseSerializer(serializers.ModelSerializer):
@@ -65,7 +65,8 @@ class ClassRoomSerializer(serializers.ModelSerializer):
         fields = [
             # 'url',
             # 'edit_url',
-            'class_room_code',
+            'classroom_code',
+            'class_name',
             'department',
             'branch',
             'faculty_id',
@@ -73,4 +74,104 @@ class ClassRoomSerializer(serializers.ModelSerializer):
             'course',          
             'subject'          
         ]
-        
+
+class SubjectiveQuestionsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subjective_Questions
+        fields = [
+            # 'url',
+            # 'edit_url',
+            'classroom_code',
+            'question_type',
+            'question',
+            'solution',
+
+            'q_image1',
+            'q_image2',
+            'q_image3',
+
+            'a_image1',
+            'a_image2',
+            'a_image3',
+        ]
+
+class MCQ_QuestionsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MCQ_Question
+        fields = [
+            # 'url',
+            # 'edit_url',
+            'classroom_code',
+            'question',
+            'solution',
+            
+            'ans1',
+            'ans_image1',
+            'ans2',
+            'ans_image2',
+            'ans3',
+            'ans_image3',
+            'ans4',
+            'ans_image4',
+
+            'correct',
+            'developer',
+
+            'q_image1',
+            'q_image2',
+            'q_image3',
+
+            'a_image1',
+            'a_image2',
+            'a_image3',
+        ]
+
+class QuizSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Quiz
+        fields = [
+            # 'url',
+            # 'edit_url',
+            'primary_key',
+            'classroom_code',
+            'title',
+            'type',
+            'maximum_marks',
+            'minimum_marks',
+            'duration',
+
+        ]        
+
+class AssingmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Assingment
+        fields = [
+            # 'url', 
+            # 'edit_url',
+            'classroom_code',
+            'question',
+            'assingment_file',
+            'image',
+            'maximum_marks',
+            'due_date',
+        ]
+
+class SubjectiveQuestionsQuizSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SubjectiveQuestionsQuiz
+        fields = [
+            # 'url', 
+            # 'edit_url',
+            'quiz_id',
+            'question_id'
+        ]
+
+class MCQ_QuestionsQuizSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MCQ_QuestionsQuiz
+        fields = [
+            # 'url', 
+            # 'edit_url',
+            'quiz_id',
+            'question_id'
+        ]

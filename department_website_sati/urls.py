@@ -9,6 +9,7 @@ urlpatterns = [
     path('faculty/', include('faculty.urls')),
     path('student/', include('student.urls')),
     path('department/', include('department.urls')),
+    path('attendance/', include('attendance.urls')),
     path('auth/', obtain_auth_token),
     path('v2/', include('department_website_sati.routers'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

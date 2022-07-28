@@ -16,7 +16,9 @@ class StudentSerializer(serializers.ModelSerializer):
             'url',
             'edit_url',
             'name',
-            'enrollment_no',           
+            'enrollment_no',   
+            'branch',
+            'course'        
         ]
 
     def get_edit_url(self, obj):
