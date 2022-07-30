@@ -7,12 +7,81 @@ import {
 import { v4 as uuidV4 } from "uuid";
 import { createClass } from "../../store/actions/classActions";
 import { connect } from 'react-redux'
+import MenuItem from '@mui/material/MenuItem';
+
+const subjects = [
+  {
+    value: 'ADA',
+    label: 'ADA',
+  },
+  {
+    value: 'ML',
+    label: 'ML',
+  },
+  {
+    value: 'Opereating system',
+    label: 'Opereating system',
+  },
+];
+
+const branches = [
+  {
+    value: 'Computer science and Engeenering',
+    label: 'Computer science and Engeenering',
+  },
+  {
+    value: 'Artificial intelligence and data science',
+    label: 'Artificial intelligence and data science',
+  },
+  {
+    value: 'Electronics and communication',
+    label: 'Electronics and communication',
+  },
+  {
+    value: 'Mechanical Engeenering',
+    label: 'Mechanical Engeenering',
+  },
+  {
+    value: 'Civil Engeenering',
+    label: 'Civil Engeenering',
+  },
+  {
+    value: 'Internet of things',
+    label: 'Internet of things',
+  },
+  {
+    value: 'Electrical Engeenering',
+    label: 'Electrical Engeenering',
+  },
+  {
+    value: 'Electrical instrumentation',
+    label: 'Electrical instrumentation',
+  },
+  {
+    value: 'CSEITCS',
+    label: 'CSEITCS',
+  },
+];
 
 const Form = () => {
   const [className, setClassName] = useState("");
   const [Section, setSection] = useState("");
   const [Room, setRoom] = useState("");
-  const [Subject, setSubject] = useState("");
+
+  const [subject, setSubject] = useState(subjects[0].value);
+  const [branch, setBranch] = useState(branches[0].value);
+
+  const WhileChange = (event) => {
+    setBranch(event.target.value);
+  };
+
+  const handleChange = (event) => {
+    // setRole(event.target.value);
+  };
+  
+  const handleSubject = (e) => {
+    setSubject(e.target.value);
+  }
 
   const addClass = (e) => {
     e.preventDefault();
@@ -41,22 +110,42 @@ const Form = () => {
           value={Section}
           onChange={(e) => setSection(e.target.value)}
         />
-        <TextField
-          id="filled-basic"
-          label="Subject"
-          className="form__input"
-          variant="filled"
-          value={Subject}
-          onChange={(e) => setSubject(e.target.value)}
-        />
-        <TextField
-          id="filled-basic"
-          label="Room"
-          className="form__input"
-          variant="filled"
-          value={Room}
-          onChange={(e) => setRoom(e.target.value)}
-        />
+        <div class="Role">
+          <TextField
+            id="filled-select-currency"
+            select
+            label="Select"
+            value={subject}
+            onChange={handleSubject}
+            helperText="Please select your Subject"
+            variant="filled"
+          >
+            {subjects.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+        </div>
+
+        <div class="Branch">
+          <TextField
+            id="filled-select-currency"
+            select
+            label="Branch"
+            value={branch}
+            onChange={handleChange}
+            helperText="Please select your Branch"
+            variant="filled"
+          >
+            {branches.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+        </div>
+
       </div>
       <DialogActions>
         <Button onClick={addClass} color="primary">
