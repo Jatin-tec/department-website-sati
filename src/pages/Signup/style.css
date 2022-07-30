@@ -1,0 +1,29 @@
+
+.SelectBranch{
+    position: relative;
+    left:8%;
+    top: 25%;
+    margin: 0 0 20px 0;
+}
+.SelectRole{
+    position: relative;
+    left:18%;
+    top: 25%;
+    margin: 0 0 20px 0;
+}
+
+#outlined-select-currency{
+    width:143px;
+}
+.Scolar{
+    position: relative;
+    width:188px;
+    left:8%;
+    top: 25%;
+}
+.Enrollment{
+    position: relative;
+    width:188px;
+    left:19%;
+    top: 25%;
+}
