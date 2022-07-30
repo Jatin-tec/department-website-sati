@@ -10,6 +10,7 @@ import {
 import Form from "./Form";
 import { connect } from "react-redux";
 import { toggleCreateClassDialog } from "../../store/actions/localStateActions";
+import { createClass } from "../../store/actions/classActions";
 
 const CreateClass = (props) => {
 
@@ -93,7 +94,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleCreateClassDialog: () => dispatch(toggleCreateClassDialog()),
-    // toggleJoinClassDialog: () => dispatch(toggleJoinClassDialog())
+    createClass: (classAbout) => dispatch(createClass(classAbout))
   }
 }
 

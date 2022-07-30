@@ -1,2 +1,0 @@
-export const JOIN_CLASS_ERROR = 'JOIN_CLASS_ERROR';
-export const JOIN_CLASS = 'JOIN_CLASS';

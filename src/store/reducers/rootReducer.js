@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 import authReducer from "./authReducer";
-import joinClassReducer from "./joinClassReducer";
+import classReducer from "./classReducer";
 import localStateReducer from "./localStateReducer";
 
 const rootReducer = combineReducers({
     auth: authReducer,
-    joinClass: joinClassReducer,
+    joinClass: classReducer,
     local: localStateReducer
 });
 

@@ -8,6 +8,10 @@ export const singin = (email, password) => {
                 "email" : email,
                 "password" : password
             })
+            sessionStorage.setItem('access', response.data.access)
+            sessionStorage.setItem('refresh', response.data.refresh)
+            sessionStorage.setItem('profile', response.data.profile)
+            
             dispatch({ type: SIGNIN_SUCCESS, payload: response.data })
         }catch(err){
             dispatch({ type:SIGNIN_ERROR, payload: err.response })

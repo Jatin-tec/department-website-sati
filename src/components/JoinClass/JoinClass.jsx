@@ -55,17 +55,17 @@ const JoinClass = (props) => {
           </div>
           <div className="joinClass__form">
             <p className="joinClass__formText">
-              You're currently signed in as {props.auth.auth && props.auth.auth.email}
+              You're currently signed in as {props.auth.auth && props.auth.auth.profile.email}
             </p>
             <div className="joinClass__loginInfo">
               <div className="joinClass__classLeft">
                 <Avatar src={'loggedInUser?.photoURL'} />
                 <div className="joinClass__loginText">
                   <div className="joinClass__loginName">
-                  {props.auth.auth && props.auth.auth.email}
+                  {props.auth.auth && props.auth.auth.profile.email}
                   </div>
                   <div className="joinClass__loginEmail">
-                  {props.auth.auth && props.auth.auth.email}
+                  {props.auth.auth && props.auth.auth.profile.email}
                   </div>
                 </div>
               </div>

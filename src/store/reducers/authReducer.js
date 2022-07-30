@@ -1,10 +1,18 @@
 import { SIGNIN_ERROR, SIGNIN_SUCCESS, SIGNOUT_SUCCESS } from "../actionTypes/authActionTypes";
 
+const access =  sessionStorage.getItem('access');
+const refresh = sessionStorage.getItem('refresh');
+const profile = sessionStorage.getItem('profile');
+
 const initialiState = {
-    isLoaded: false,
-    isEmpty: false,
+    isLoaded: access ? true : false,
+    isEmpty: access ? false : true,
     authError: null,
-    auth: null
+    auth: access ? {
+        access,
+        refresh,
+        profile: JSON.parse(profile) 
+    } : null
 };
 
 const authReducer = (state = initialiState, action) => {
@@ -15,7 +23,10 @@ const authReducer = (state = initialiState, action) => {
                 isLoaded: true,
                 isEmpty: false,
                 authError: null,
-                auth: action.payload
+                auth: {
+                    ...action.payload,
+                    profile: JSON.parse(action.payload.profile)
+                }
             };
         
         case SIGNIN_ERROR:

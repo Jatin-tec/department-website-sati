@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { 
-  Button, 
-  DialogActions, 
-  TextField } from "@material-ui/core";
+import {
+  Button,
+  DialogActions,
+  TextField
+} from "@material-ui/core";
 import { v4 as uuidV4 } from "uuid";
+import { createClass } from "../../store/actions/classActions";
+import { connect } from 'react-redux'
 
 const Form = () => {
   const [className, setClassName] = useState("");
@@ -64,4 +67,19 @@ const Form = () => {
   );
 };
 
-export default Form;
+
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createClass: (classAbout) => dispatch(createClass(classAbout))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form)
+
