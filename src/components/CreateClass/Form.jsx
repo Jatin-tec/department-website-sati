@@ -63,8 +63,6 @@ const Branches = [
 const Form = () => {
   const [className, setClassName] = useState("");
   const [Section, setSection] = useState("");
-  const [Room, setRoom] = useState("");
-  const [Subject, setSubject] = useState("");
   const [Role, setRole] = React.useState('Student');
   
   const [Branch, setBranch] = React.useState('Student');
@@ -97,21 +95,21 @@ const Form = () => {
           onChange={(e) => setClassName(e.target.value)}
         />
         <TextField
-          id="filled-basic"
+          id="filled-select-currency"
           label="Section"
           className="form__input"
           variant="filled"
           value={Section}
           onChange={(e) => setSection(e.target.value)}
         />
-        <div class="Role">
+        <div className="form__input">
         <TextField
           id="filled-select-currency"
+          className="form__input"
           select
           label="Select"
           value={Role}
           onChange={handleChange}
-          helperText="Please select your Subject"
           variant="filled"
         >
           {Roles.map((option) => (
@@ -122,14 +120,14 @@ const Form = () => {
         </TextField>
                 </div>
         
-        <div class="Branch">
+        <div className="form__input">
         <TextField
           id="filled-select-currency"
+          className="form__input"
           select
           label="Branch"
           value={Branch}
           onChange={handleChange}
-          helperText="Please select your Branch"
           variant="filled"
         >
           {Branches.map((option) => (
