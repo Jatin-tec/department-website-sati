@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import "./style.css";
 import Announcment from "../../components/Announcment/Announcment";
 import Header from "../../components/Header/Header";
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
  
-const Main = ({ classData }) => {
+const Main = () => {
 
   const [showInput, setShowInput] = useState(false);
   const [inputValue, setInput] = useState("");
@@ -19,9 +19,12 @@ const Main = ({ classData }) => {
     }
   };
 
-  const handleUpload = () => {
-    
+  const handleUpload = () => {    
   };
+
+  const location = useLocation();
+  console.log(location);
+  const classData = location.state;
 
   return (
     <div className="main">
@@ -34,10 +37,10 @@ const Main = ({ classData }) => {
             </div>
             <div className="main__text">
               <h1 className="main__heading main__overflow">
-                {'classData.className'}
+                {classData.class_name}
               </h1>
               <div className="main__section main__overflow">
-                {'classData.section'}
+                {classData.subject}
               </div>
               <div className="main__wrapper2">
                 <em className="main__code">Class Code :</em>
