@@ -1,23 +1,23 @@
 import { Avatar } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
-import db from "../../lib/firebase";
 import "./style.css";
+
 const Announcment = ({ classData }) => {
   const [announcment, setAnnouncment] = useState([]);
 
-  useEffect(() => {
-    if (classData) {
-      let unsubscribe = db
-        .collection("announcments")
-        .doc("classes")
-        .collection(classData.id)
-        .onSnapshot((snap) => {
-          setAnnouncment(snap.docs.map((doc) => doc.data()));
-        });
-      return () => unsubscribe();
-    }
-  }, [classData]);
-  console.log(announcment);
+  // useEffect(() => {
+  //   if (classData) {
+  //     let unsubscribe = db
+  //       .collection("announcments")
+  //       .doc("classes")
+  //       .collection(classData.id)
+  //       .onSnapshot((snap) => {
+  //         setAnnouncment(snap.docs.map((doc) => doc.data()));
+  //       });
+  //     return () => unsubscribe();
+  //   }
+  // }, [classData]);
+  
   return (
     <div>
       {announcment.map((item) => (

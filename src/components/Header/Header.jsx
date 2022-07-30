@@ -38,6 +38,7 @@ const Header = (props) => {
       <AppBar className={classes.appBar} position="static">
         <Toolbar className={classes.toolbar}>
           <div className={classes.headerWrapper}>
+            {props.children}
             <img
               src="https://almashines.s3.dualstack.ap-southeast-1.amazonaws.com/assets/images/institutes/logo/170x170/452.jpg?v=1564576092"
               alt="SATI"
