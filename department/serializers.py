@@ -1,3 +1,5 @@
+from dataclasses import field
+from pyexpat import model
 from rest_framework import serializers 
 from department.models import Course, Department, Branch, Subject, ClassRoom, Subjective_Questions, MCQ_Question, Assingment, Quiz, SubjectiveQuestionsQuiz, MCQ_QuestionsQuiz
 from rest_framework.reverse import reverse
@@ -175,3 +177,22 @@ class MCQ_QuestionsQuizSerializer(serializers.ModelSerializer):
             'quiz_id',
             'question_id'
         ]
+
+from .models import CustomUser
+class RegisterUserSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = CustomUser
+        fields = ('email', 'first_name', 'last_name', 'role')
+        extra_kwargs = {'password': {'write_only': True}}
+
+
+    def create(self, validate_data):
+        password = validate_data.pop('password', None)
+        instance = self.Meta.model(**validate_data)
+
+        if password is not None:
+            instance.set_password(password)
+
+        instance.save()
+        return instance         

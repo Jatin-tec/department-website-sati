@@ -9,7 +9,6 @@ from rest_framework import generics, permissions, mixins, authentication
 
 @api_view(["GET", "POST", "PUT", "DELETE"])
 def faculty(request, *args, **kwargs):
-   
     data = {}
    
     if request.method == 'GET':

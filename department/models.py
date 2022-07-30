@@ -1,5 +1,6 @@
 from asyncio.windows_events import NULL
 from datetime import datetime
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from distutils.command.upload import upload
 from email.mime import image
 from tkinter.messagebox import QUESTION
@@ -7,6 +8,73 @@ from unittest import mock
 from django.db import models
 from pkg_resources import require
 from faculty.models import *
+from django.utils import timezone 
+
+class CustomAccountManager(BaseUserManager):
+    def create_superuser(self, email, first_name, last_name, password, **other_fields):
+        other_fields.setdefault('is_staff', True)
+        other_fields.setdefault('is_superuser', True)
+        other_fields.setdefault('is_active', True)
+
+        if other_fields.get('is_staff') is not True:
+            raise ValueError(
+                'Superuser must be assinged to is_staff=True.'
+            )
+        if other_fields.get('is_superuser') is not True:
+            raise ValueError(
+                'Superuser must be assinged to is_superuser=True.'
+            )
+
+        return self.create_user(email, first_name, last_name, password, **other_fields)
+
+    def create_user(self, email, first_name, last_name, password, **other_fields):
+        if not email:
+            raise ValueError(_('You must provide an email address'))
+
+        email = self.normalize_email(email)
+        user = self.model(email=email, first_name=first_name, last_name=last_name,**other_fields)
+
+        user.set_password(password)
+        user.save()
+        return user
+    
+class CustomUser(AbstractBaseUser, PermissionsMixin):
+    email = models.EmailField(max_length=255, unique=True)
+    first_name = models.CharField(max_length=30, unique=False, null=True, blank=True)
+    username = models.CharField(max_length=50, unique=False, null=True, blank=True)
+    last_name = models.CharField(max_length=30, null=True, blank=True)
+    role = models.CharField(max_length=20, null=True, blank=True)
+
+    date_joined = models.DateTimeField(default=timezone.now)  
+    
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
+
+    objects = CustomAccountManager()
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['first_name', 'last_name']
+
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from student.models import Student
+from faculty.models import ContactDetails
+from django.conf import settings
+
+@receiver(post_save, sender=settings.AUTH_USER_MODEL)
+def create_user_profile(sender, instance, created, *args, **kwargs):
+    if created:
+
+        if instance.role == 'student':
+            student = Student.objects.create(user=instance)
+            print(student, 'signal')
+        
+        if instance.role == 'teacher':
+            print(instance)
+            faculty = ContactDetails.objects.create(user=instance)
+            faculty.save()
+
 
 class Course(models.Model):
     course_id = models.CharField(max_length=20, unique=True, primary_key=True)
@@ -84,7 +152,7 @@ class Subjective_Questions(models.Model):
         ("Long Answer", "Long Answer"),
     )
 
-    classroom_code = models.ForeignKey('ClassRoom', on_delete=models.CASCADE, null=True, blank=True,default='')
+    classroom_code = models.ForeignKey('ClassRoom', on_delete=models.CASCADE, null=True, blank=True, default='')
     question_type=models.CharField(max_length=50, choices=QUESTION_TYPE, verbose_name="Type of Question")
 
     question = models.TextField(blank=False, null=False)
@@ -108,9 +176,9 @@ class Subjective_Questions(models.Model):
         verbose_name_plural = "Subjective Questions"
 
 class MCQ_Question(models.Model):
-    classroom_code = models.ForeignKey('ClassRoom', on_delete=models.CASCADE, null=True, blank=True,default='') 
+    classroom_code = models.ForeignKey('ClassRoom', on_delete=models.CASCADE, null=True, blank=True, default='') 
 
-    primary_key = models.CharField(max_length=10, primary_key=True, default=datetime.now())
+    primary_key = models.CharField(max_length=10, primary_key=True)
 
     question = models.TextField(blank=False, null=False, verbose_name=u"Question")
     solution = models.TextField(blank=True, null=True, verbose_name=u"Solution")
@@ -160,7 +228,7 @@ class Quiz(models.Model):
     date_added = models.DateField(auto_now_add=True, verbose_name=u"Date added")
     duration = models.FloatField(null=True, blank=True, verbose_name="Duration in hours", default="")
 
-    primary_key = models.CharField(max_length=10, primary_key=True, default=datetime.now())
+    primary_key = models.CharField(max_length=10, primary_key=True)
 
     def __str__(self):
         return self.title
@@ -173,7 +241,7 @@ class Assingment(models.Model):
     image = models.ImageField(upload_to='assingments/image', blank=True, null=True, verbose_name=u"Assingment image")
     maximum_marks = models.IntegerField(verbose_name="Total marks of assingment")
 
-    primary_key = models.CharField(max_length=10, primary_key=True, default=datetime.now())
+    primary_key = models.CharField(max_length=10, primary_key=True)
 
     date_added = models.DateField(auto_now_add=True, verbose_name=u"Date added")
     due_date = models.DateField(null=True, blank=True, verbose_name=u"Due added", default="")
@@ -182,11 +250,11 @@ class Assingment(models.Model):
         return self.title
 
 class SubjectiveQuestionsQuiz(models.Model):
-    primary_key = models.CharField(max_length=10, primary_key=True, default=datetime.now())
+    primary_key = models.CharField(max_length=10, primary_key=True)
     quiz_id = models.ForeignKey('Quiz', on_delete=models.CASCADE)
     question_id = models.ForeignKey('Subjective_Questions', on_delete=models.CASCADE)
 
 class MCQ_QuestionsQuiz(models.Model):
-    primary_key = models.CharField(max_length=10, primary_key=True, default=datetime.now())
+    primary_key = models.CharField(max_length=10, primary_key=True)
     quiz_id = models.ForeignKey('Quiz', on_delete=models.CASCADE)
     question_id = models.ForeignKey('MCQ_Question', on_delete=models.CASCADE)

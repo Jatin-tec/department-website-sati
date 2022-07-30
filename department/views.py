@@ -1,7 +1,5 @@
-# from django.shortcuts import render
 from rest_framework import generics, permissions, mixins, authentication
-# from student.models import Course
-# from student.serializers import *
+from rest_framework.views import APIView
 from department.models import *
 from department.serializers import *
 from department_website_sati.authentication import TokenAuthentication
@@ -608,3 +606,23 @@ class SubjectiveQuestionsQuizDetailAPIView(
     lookup_field = 'primary_key'
 
 subjective_questions_quiz_detail_view = SubjectiveQuestionsQuizDetailAPIView.as_view()
+
+from .serializers import RegisterUserSerializer
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.permissions import AllowAny
+
+class CustomUserCreate(APIView):
+    permissions_classes = [AllowAny]
+
+    def post(self, request):
+        print(request.data)
+        reg_serializer = RegisterUserSerializer(data=request.data)
+
+        if reg_serializer.is_valid():
+            newuser = reg_serializer.save()
+            
+            if newuser:
+                return Response(status=status.HTTP_201_CREATED)
+
+        return Response(reg_serializer.errors, status=status.HTTP_400_BAD_REQUEST)        
