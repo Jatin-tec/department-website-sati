@@ -3,6 +3,7 @@ import './style.css';
 import contacts from "./contacts";
 import Card from "./Card";
 import Header from "../../components/Header/Header";
+import SpeedDialTooltipOpen from "../../components/Dropdown/Dropdown"
 
 const date = new Date();
 var today="Take attendence of "+date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear();
@@ -41,6 +42,7 @@ return(
  
   <button id="Attendence-submit" type="submit">Submit</button>
   </form>
+  <SpeedDialTooltipOpen/>
   </div>
 
 )

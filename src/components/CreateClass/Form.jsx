@@ -4,12 +4,78 @@ import {
   DialogActions, 
   TextField } from "@material-ui/core";
 import { v4 as uuidV4 } from "uuid";
+import MenuItem from '@mui/material/MenuItem';
+
+const Roles = [
+  {
+    value: 'ADA',
+    label: 'ADA',
+  },
+  {
+    value: 'ML',
+    label: 'ML',
+  },
+  {
+    value: 'Opereating system',
+    label: 'Opereating system',
+  },
+];
+
+const Branches = [
+  {
+    value: 'Computer science and Engeenering',
+    label: 'Computer science and Engeenering',
+  },
+  {
+    value: 'Artificial intelligence and data science',
+    label: 'Artificial intelligence and data science',
+  },
+  {
+    value: 'Electronics and communication',
+    label: 'Electronics and communication',
+  },
+  {
+    value: 'Mechanical Engeenering',
+    label: 'Mechanical Engeenering',
+  },
+  {
+    value: 'Civil Engeenering',
+    label: 'Civil Engeenering',
+  },
+  {
+    value: 'Internet of things',
+    label: 'Internet of things',
+  },
+  {
+    value: 'Electrical Engeenering',
+    label: 'Electrical Engeenering',
+  },
+  {
+    value: 'Electrical instrumentation',
+    label: 'Electrical instrumentation',
+  },
+  {
+    value: 'CSEITCS',
+    label: 'CSEITCS',
+  },
+];
 
 const Form = () => {
   const [className, setClassName] = useState("");
   const [Section, setSection] = useState("");
   const [Room, setRoom] = useState("");
   const [Subject, setSubject] = useState("");
+  const [Role, setRole] = React.useState('Student');
+  
+  const [Branch, setBranch] = React.useState('Student');
+
+  const WhileChange = (event) => {
+    setBranch(event.target.value);
+  };
+
+  const handleChange = (event) => {
+    setRole(event.target.value);
+  };
 
   const addClass = (e) => {
     e.preventDefault();
@@ -38,22 +104,42 @@ const Form = () => {
           value={Section}
           onChange={(e) => setSection(e.target.value)}
         />
+        <div class="Role">
         <TextField
-          id="filled-basic"
-          label="Subject"
-          className="form__input"
+          id="filled-select-currency"
+          select
+          label="Select"
+          value={Role}
+          onChange={handleChange}
+          helperText="Please select your Subject"
           variant="filled"
-          value={Subject}
-          onChange={(e) => setSubject(e.target.value)}
-        />
+        >
+          {Roles.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+                </div>
+        
+        <div class="Branch">
         <TextField
-          id="filled-basic"
-          label="Room"
-          className="form__input"
+          id="filled-select-currency"
+          select
+          label="Branch"
+          value={Branch}
+          onChange={handleChange}
+          helperText="Please select your Branch"
           variant="filled"
-          value={Room}
-          onChange={(e) => setRoom(e.target.value)}
-        />
+        >
+          {Branches.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </TextField>
+                </div>
+        
       </div>
       <DialogActions>
         <Button onClick={addClass} color="primary">
