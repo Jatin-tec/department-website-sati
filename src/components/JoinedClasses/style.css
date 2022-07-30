@@ -92,3 +92,9 @@ ol {
 .joined__bottom > * {
   margin-right: 20px;
 }
+.span{
+  display: inline-block;
+  margin: 16px 16px ;
+  position: relative;
+  left: 32px;
+}

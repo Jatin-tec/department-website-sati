@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "./style.css";
 const JoinedClasses = ({ classData }) => {
   return (
+    <div className="span">
     <li className="joined__list">
       <div className="joined__wrapper">
         <div className="joined__container">
@@ -27,6 +28,7 @@ const JoinedClasses = ({ classData }) => {
         <FolderOpen />
       </div>
     </li>
+    </div>
   );
 };
 
