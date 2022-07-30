@@ -9,7 +9,7 @@ import {
   Toolbar,
   Typography } from "@material-ui/core";
 import { Add, Apps } from "@material-ui/icons";
-
+import { deepOrange} from '@mui/material/colors';
 import JoinClass from "../JoinClass/JoinClass" ;
 import CreateClass from "../CreateClass/CreateClass";
 import { connect } from "react-redux";
@@ -65,11 +65,7 @@ const Header = (props) => {
             </Menu>
 
             <div>
-              <Avatar
-                onClick={() => {}}
-                src={''}
-                className={classes.icon}
-              />
+            <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>
             </div>
 
           </div>
