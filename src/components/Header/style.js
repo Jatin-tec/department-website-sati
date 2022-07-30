@@ -19,7 +19,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   
   appBar: {
-    backgroundColor: "white",
+    backgroundColor: "Black",
     color: "white",
   },
   

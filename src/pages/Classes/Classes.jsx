@@ -31,9 +31,10 @@ const Classes = () => {
     return (
         <>
             <Header />
+            <div className="AllClassJoined">
             {classesArray.map(classData => (
                 <JoinedClasses classData={classData}/>
-            ))}
+            ))}</div>
             <SpeedDialTooltipOpen />
         </>
     )
