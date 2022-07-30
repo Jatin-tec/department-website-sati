@@ -19,10 +19,12 @@ export const joinClass = (email, password) => {
 export const createClass = (classAbout) => {
     return async (dispatch, getState) => {
         const state = getState();
-        const faculty_id = state.auth.auth.profile.facultyId;
+        const faculty_id = state.auth.auth.profile.email;
         const faculty_email = state.auth.auth.profile.email;
+        console.log(`SecretAuth ${sessionStorage.getItem('access')}`)
         try {
             const { className, section, subjectCode, branch } = classAbout;
+            // console.log(classAbout);
             const response = await axios.post('http://127.0.0.1:8000/department/classroom', {
                 classroom_code: uuid(),
                 faculty_id,
@@ -31,6 +33,14 @@ export const createClass = (classAbout) => {
                 branch,
                 section,
                 faculty_email
+            }, {
+                headers: {
+                    Authorization: sessionStorage.getItem('access')
+                        ? `SecretAuth ${sessionStorage.getItem('access')}`
+                        : null,
+                    'Content-Type': 'application/json',
+                    accept: 'application/json'
+                }
             })
             dispatch({ type: CREATE_CLASSS_SUCCESS, payload: response.data })
         } catch (err) {

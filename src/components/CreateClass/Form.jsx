@@ -4,7 +4,6 @@ import {
   DialogActions,
   TextField
 } from "@material-ui/core";
-import { v4 as uuidV4 } from "uuid";
 import { createClass } from "../../store/actions/classActions";
 import { connect } from 'react-redux'
 import MenuItem from '@mui/material/MenuItem';
@@ -12,14 +11,17 @@ import MenuItem from '@mui/material/MenuItem';
 const subjects = [
   {
     value: 'ADA',
+    id: 'AI2024',
     label: 'ADA',
   },
   {
     value: 'ML',
+    id: 'AI2023',
     label: 'ML',
   },
   {
     value: 'Opereating system',
+    id: 'AI2021',
     label: 'Opereating system',
   },
 ];
@@ -27,66 +29,66 @@ const subjects = [
 const branches = [
   {
     value: 'Computer science and Engeenering',
+    id: 'CSE002',
     label: 'Computer science and Engeenering',
   },
   {
     value: 'Artificial intelligence and data science',
+    id: 'AI001',
     label: 'Artificial intelligence and data science',
   },
   {
     value: 'Electronics and communication',
+    id: 'EC004',
     label: 'Electronics and communication',
   },
   {
     value: 'Mechanical Engeenering',
+    id: 'ME005',
     label: 'Mechanical Engeenering',
   },
   {
     value: 'Civil Engeenering',
+    id: 'CE003',
     label: 'Civil Engeenering',
   },
   {
-    value: 'Internet of things',
-    label: 'Internet of things',
+    value: 'Internet of Things',
+    id: 'IOT006',
+    label: 'Internet of Things',
   },
   {
     value: 'Electrical Engeenering',
+    id: 'EE007',
     label: 'Electrical Engeenering',
   },
   {
-    value: 'Electrical instrumentation',
-    label: 'Electrical instrumentation',
+    value: 'Electrical Instrumentation',
+    id: 'EI008',
+    label: 'Electrical Instrumentation',
   },
   {
     value: 'CSEITCS',
+    id: 'CSEITCSSE009',
     label: 'CSEITCS',
   },
 ];
 
-const Form = () => {
+const Form = (props) => {
+
   const [className, setClassName] = useState("");
-  const [Section, setSection] = useState("");
-  const [Room, setRoom] = useState("");
-
+  const [section, setSection] = useState("");
   const [subject, setSubject] = useState(subjects[0].value);
-  const [branch, setBranch] = useState(branches[0].value);
-
-  const WhileChange = (event) => {
-    setBranch(event.target.value);
-  };
-
-  const handleChange = (event) => {
-    // setRole(event.target.value);
-  };
-  
-  const handleSubject = (e) => {
-    setSubject(e.target.value);
-  }
+  const [branch, setBranch] = React.useState(branches[0].value);
 
   const addClass = (e) => {
     e.preventDefault();
-    const id = uuidV4();
-
+    props.createClass({
+      className, 
+      section, 
+      subjectCode: subject, 
+      branch
+    })
   };
 
   return (
@@ -103,43 +105,43 @@ const Form = () => {
           onChange={(e) => setClassName(e.target.value)}
         />
         <TextField
-          id="filled-basic"
+          id="filled-select-currency"
           label="Section"
           className="form__input"
           variant="filled"
-          value={Section}
+          value={section}
           onChange={(e) => setSection(e.target.value)}
         />
-        <div class="Role">
+        <div className="form__input">
           <TextField
-            id="filled-select-currency"
+            id="subject-select"
+            className="form__input"
             select
-            label="Select"
+            label="Subject"
             value={subject}
-            onChange={handleSubject}
-            helperText="Please select your Subject"
+            onChange={(e) => setSubject(e.target.value)}
             variant="filled"
           >
-            {subjects.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
+            {subjects.map(option => (
+              <MenuItem key={option.value} value={option.id}>
                 {option.label}
               </MenuItem>
             ))}
           </TextField>
         </div>
 
-        <div class="Branch">
+        <div className="form__input">
           <TextField
-            id="filled-select-currency"
+            id="branch-select"
+            className="form__input"
             select
             label="Branch"
             value={branch}
-            onChange={handleChange}
-            helperText="Please select your Branch"
+            onChange={(e)=> setBranch(e.target.value)}
             variant="filled"
           >
-            {branches.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
+            {branches.map(option => (
+              <MenuItem key={option.value} value={option.id}>
                 {option.label}
               </MenuItem>
             ))}
