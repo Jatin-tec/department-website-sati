@@ -14,7 +14,7 @@ import "./style.css";
 
 const actions = [
   { icon: <SchoolIcon />, name: 'Attendence', to: '/Attendence', },
-  { icon: <GroupIcon />, name: 'Classes', to: '/Attendence', },
+  { icon: <GroupIcon />, name: 'Classes', to: '/classes', },
   { icon: <GavelIcon />, name: 'Evalute', to: '/Evalute', },
   { icon: <HomeIcon />, name: 'Home', to: '/', },
 ];
