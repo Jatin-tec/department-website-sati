@@ -30,29 +30,29 @@ const Classes = () => {
         {
             id: 1234,
             owner: 'prashant@gmail.com',
-            className: 'First Class'
+            class_name: 'First Class'
         },
         {
             id: 1234,
             owner: 'prashant@gmail.com',
-            className: 'First Class'
+            class_name: 'First Class'
         },
         {
             id: 1234,
             owner: 'prashant@gmail.com',
-            className: 'First Class'
+            class_name: 'First Class'
         },
         {
             id: 1234,
             owner: 'prashant@gmail.com',
-            className: 'First Class'
+            class_name: 'First Class'
         },
     ]
 
     return (
         <>
             <Header />
-            {classesArray_.map(classData => (
+            {classesArray.map(classData => (
                 <JoinedClasses classData={classData} />
             ))}
             <SpeedDialTooltipOpen />

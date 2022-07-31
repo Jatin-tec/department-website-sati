@@ -4,7 +4,17 @@ import "./style.css";
 import Announcment from "../../components/Announcment/Announcment";
 import Header from "../../components/Header/Header";
 import { useParams, useLocation } from 'react-router-dom';
- 
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import SpeedDialTooltipOpen from "../../components/Dropdown/Dropdown";
+
+
+
+function CopyToClipboard() {
+  /* Get the text field */
+  var copyText = "Hello";
+  navigator.clipboard.writeText(copyText);
+  alert("Copied the text:"+ copyText);
+}
 const Main = () => {
 
   const [showInput, setShowInput] = useState(false);
@@ -44,7 +54,11 @@ const Main = () => {
               </div>
               <div className="main__wrapper2">
                 <em className="main__code">Class Code :</em>
+                
+                <div className="showonhover">
                 <div className="main__id">{params.code}</div>
+                <span className="Copy" onClick={CopyToClipboard}><ContentCopyIcon/></span>
+                </div>
               </div>
             </div>
           </div>
@@ -105,6 +119,7 @@ const Main = () => {
           </div>
         </div>
       </div>
+      <SpeedDialTooltipOpen/>
     </div>
   );
 };

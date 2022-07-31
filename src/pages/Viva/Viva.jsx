@@ -5,8 +5,9 @@ import Form from "../../components/CreateClass/Form";
 export default function Viva(){
     return <div>
 
-this is viva page
+this is Testing page
 <Form/>
+
 <SpeedDialTooltipOpen/>
     </div>
 }

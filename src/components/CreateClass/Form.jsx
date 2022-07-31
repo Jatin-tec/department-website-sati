@@ -7,6 +7,13 @@ import {
 import { createClass } from "../../store/actions/classActions";
 import { connect } from 'react-redux'
 import MenuItem from '@mui/material/MenuItem';
+import Stack from '@mui/material/Stack';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const subjects = [
   {
@@ -75,6 +82,21 @@ const branches = [
 ];
 
 const Form = (props) => {
+  
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+
 
   const [className, setClassName] = useState("");
   const [section, setSection] = useState("");
@@ -150,9 +172,18 @@ const Form = (props) => {
 
       </div>
       <DialogActions>
-        <Button onClick={addClass} color="primary">
-          Create
-        </Button>
+      
+      <Button variant="outlined" /*onClick={addClass}*/onClick={handleClick}>
+        Create
+      </Button>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          Class created Successfully, Please refresh
+        </Alert>
+      </Snackbar>
+      
+      
+  
       </DialogActions>
     </div>
   );
