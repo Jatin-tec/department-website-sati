@@ -23,7 +23,7 @@ const JoinedClasses = ({ classData }) => {
             <div className="joined__imgWrapper" />
             <div className="joined__image" />
             <div className="joined__content">
-                <h2 className="joined__title" onClick={redirect}>{classData.class_name}</h2>
+              <h2 className="joined__title" onClick={redirect}>{classData.class_name}</h2>
               <p className="joined__owner">{classData.faculty_email}</p>
             </div>
           </div>

@@ -5,13 +5,16 @@ import SpeedDialTooltipOpen from "../../components/Dropdown/Dropdown";
 import Header from "../../components/Header/Header";
 import JoinedClasses from "../../components/JoinedClasses/JoinedClasses";
 import "./style.css"
+import { useSelector } from "react-redux";
+
 const Classes = () => {
 
     const [classesArray_, setClasses] = useState([]);
-    
+    const userEmail = useSelector(state => state.auth.auth.profile.email)
+
     useEffect(() => {
         (async () => {
-            const response = await axios.get('http://127.0.0.1:8000/department/classroom',
+            const response = await axios.get(`http://127.0.0.1:8000/department/classroom/${userEmail}`,
                 {
                     headers: {
                         Authorization: sessionStorage.getItem('access')
@@ -22,7 +25,6 @@ const Classes = () => {
                 }
             )
             setClasses(response.data);
-            // console.log(response.data)
         })()
     }, [])
 
@@ -43,18 +45,20 @@ const Classes = () => {
             className: 'First Class'
         },
         {
-            id: 1234,
+            classroom_code: 723618623534,
             owner: 'prashant@gmail.com',
-            className: 'First Class'
+            class_name: 'First Class'
         },
     ]
 
     return (
         <>
             <Header />
-            {classesArray_.map(classData => (
-                <JoinedClasses classData={classData} />
-            ))}
+            {classesArray_.map(classData => {
+                return (
+                    <JoinedClasses classData={classData} />
+                )
+            })}
             <SpeedDialTooltipOpen />
         </>
     )
