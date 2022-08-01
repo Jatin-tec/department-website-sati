@@ -8,7 +8,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import SpeedDialTooltipOpen from "../../components/Dropdown/Dropdown";
 import { connect } from "react-redux";
 import { updateHeaderTitle } from "../../store/actions/headerActionState";
-
+import Container from '@mui/material/Container';
 function CopyToClipboard() {
   /* Get the text field */
   var copyText = "Hello";
@@ -63,6 +63,7 @@ const Main = (props) => {
   const classData = location.state;
 
   return (
+    <Container maxWidth="md">
     <div className="main">
       <div className="main__wrapper">
         <div className="main__content">
@@ -91,7 +92,10 @@ const Main = (props) => {
           <div className="main__status">
             <p>Upcoming</p>
             <p className="main__subText">No work due</p>
+            <button className="ViewAllButton">View all</button>
           </div>
+          
+          
           <div className="main__announcements">
             <div className="main__announcementsWrapper">
               <div className="main__ancContent">
@@ -145,6 +149,8 @@ const Main = (props) => {
       </div>
       <SpeedDialTooltipOpen />
     </div>
+    
+    </Container>
   );
 };
 
