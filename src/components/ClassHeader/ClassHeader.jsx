@@ -13,8 +13,9 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-const pages = [
+const pages_ = [
     {
         title: 'Classes',
         path: '/classes'
@@ -57,6 +58,9 @@ const ClassHeader = () => {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+    const pages = useSelector(state => state.header.titles)
+    console.log(pages);
 
     return (
         <AppBar position="static">

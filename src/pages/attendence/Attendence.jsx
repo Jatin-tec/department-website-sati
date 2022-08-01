@@ -2,7 +2,6 @@ import React from "react";
 import './style.css';
 import contacts from "./contacts";
 import Card from "./Card";
-import Header from "../../components/Header/Header";
 import SpeedDialTooltipOpen from "../../components/Dropdown/Dropdown"
 
 const date = new Date();
@@ -22,10 +21,8 @@ function createCard(contacts){
 function Attendence(){
 return(
  <div>
-  <Header />
   <form>
   <h1 className="heading">Attendence of the Students of AIADS</h1>
-  
   <table>
   <tr>
     <th>Name</th>

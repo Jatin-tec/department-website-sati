@@ -1,16 +1,23 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import SpeedDialTooltipOpen from "../../components/Dropdown/Dropdown";
-import Header from "../../components/Header/Header";
 import JoinedClasses from "../../components/JoinedClasses/JoinedClasses";
 import "./style.css"
 import { useSelector } from "react-redux";
-import ClassHeader from "../../components/ClassHeader/ClassHeader";
+import { connect } from "react-redux";
+import { updateHeaderTitle } from "../../store/actions/headerActionState";
 
-const Classes = () => {
+const pages = [
+    {
+        title: 'Home',
+        path: '/'
+    },
+]
+
+const Classes = (props) => {
 
     const [classesArray_, setClasses] = useState([]);
-    const userEmail = useSelector(state => state.auth.auth.profile.email)
+    const userEmail = useSelector(state => state.auth.auth.profile.email);
 
     useEffect(() => {
         (async () => {
@@ -24,7 +31,9 @@ const Classes = () => {
                     }
                 }
             )
+            const headerTitles = ['Home']
             setClasses(response.data);
+            props.updateHeader(pages);    
         })()
     }, [])
 
@@ -53,7 +62,6 @@ const Classes = () => {
 
     return (
         <>
-            <ClassHeader />
             {classesArray_.map(classData => {
                 return (
                     <JoinedClasses classData={classData} />
@@ -64,4 +72,10 @@ const Classes = () => {
     )
 }
 
-export default Classes
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateHeader: (titles) => dispatch(updateHeaderTitle(titles))
+    }
+  }
+  
+export default connect(null, mapDispatchToProps)(Classes)

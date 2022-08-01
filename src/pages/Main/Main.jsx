@@ -1,13 +1,13 @@
 import { Avatar, Button, TextField } from "@material-ui/core";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import Announcment from "../../components/Announcment/Announcment";
 import Header from "../../components/Header/Header";
 import { useParams, useLocation } from 'react-router-dom';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import SpeedDialTooltipOpen from "../../components/Dropdown/Dropdown";
-
-
+import { connect } from "react-redux";
+import { updateHeaderTitle } from "../../store/actions/headerActionState";
 
 function CopyToClipboard() {
   /* Get the text field */
@@ -15,12 +15,42 @@ function CopyToClipboard() {
   navigator.clipboard.writeText(copyText);
   alert("Copied the text:" + copyText);
 }
-const Main = () => {
+
+const pages = [
+  {
+    title: 'Classes',
+    path: '/classes'
+  },
+  {
+    title: 'Classwork',
+    path: '/classes'
+  },
+  {
+    title: 'People',
+    path: '/peoples'
+  },
+  {
+    title: 'Attendence',
+    path: '/attendence'
+  },
+  {
+    title: 'Marks',
+    path: '/'
+  }
+];
+
+const Main = (props) => {
 
   const [showInput, setShowInput] = useState(false);
   const [inputValue, setInput] = useState("");
 
   const params = useParams();
+
+  useEffect(() => {
+    (async () => {
+      props.updateHeader(pages)
+    })()
+  })
 
   const handleChange = (e) => {
     if (e.target.files[0]) {
@@ -34,7 +64,6 @@ const Main = () => {
 
   return (
     <div className="main">
-      <Header />
       <div className="main__wrapper">
         <div className="main__content">
           <div className="main__wrapper1">
@@ -51,8 +80,8 @@ const Main = () => {
               <div className="main__wrapper2">
                 <em className="main__code">Class Code :</em>
 
-                <div className="showonhover">  
-                    <div className="main__id"><span className="Copy" onClick={CopyToClipboard} style={{ 'display': 'flex'}}><div style={{ marginRight: '4px' }}>{params.code}</div><ContentCopyIcon/></span></div>
+                <div className="showonhover">
+                  <div className="main__id"><span className="Copy" onClick={CopyToClipboard} style={{ 'display': 'flex' }}><div style={{ marginRight: '4px' }}>{params.code}</div><ContentCopyIcon /></span></div>
                 </div>
               </div>
             </div>
@@ -90,7 +119,7 @@ const Main = () => {
                         </Button>
 
                         <Button
-                          onClick={() => {}}
+                          onClick={() => { }}
                           color="primary"
                           variant="contained"
                         >
@@ -119,4 +148,10 @@ const Main = () => {
   );
 };
 
-export default Main;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateHeader: (titles) => dispatch(updateHeaderTitle(titles))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Main)
