@@ -4,23 +4,29 @@ import "./style.css";
 import Announcment from "../../components/Announcment/Announcment";
 import Header from "../../components/Header/Header";
 import { useParams, useLocation } from 'react-router-dom';
- 
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import SpeedDialTooltipOpen from "../../components/Dropdown/Dropdown";
+
+
+
+function CopyToClipboard() {
+  /* Get the text field */
+  var copyText = "Hello";
+  navigator.clipboard.writeText(copyText);
+  alert("Copied the text:" + copyText);
+}
 const Main = () => {
 
   const [showInput, setShowInput] = useState(false);
   const [inputValue, setInput] = useState("");
-  const [image, setImage] = useState(null);
 
   const params = useParams();
 
   const handleChange = (e) => {
     if (e.target.files[0]) {
-      setImage(e.target.files[0]);
     }
   };
 
-  const handleUpload = () => {    
-  };
 
   const location = useLocation();
   console.log(location);
@@ -44,7 +50,10 @@ const Main = () => {
               </div>
               <div className="main__wrapper2">
                 <em className="main__code">Class Code :</em>
-                <div className="main__id">{params.code}</div>
+
+                <div className="showonhover">  
+                    <div className="main__id"><span className="Copy" onClick={CopyToClipboard} style={{ 'display': 'flex'}}><div style={{ marginRight: '4px' }}>{params.code}</div><ContentCopyIcon/></span></div>
+                </div>
               </div>
             </div>
           </div>
@@ -81,7 +90,7 @@ const Main = () => {
                         </Button>
 
                         <Button
-                          onClick={handleUpload}
+                          onClick={() => {}}
                           color="primary"
                           variant="contained"
                         >
@@ -105,6 +114,7 @@ const Main = () => {
           </div>
         </div>
       </div>
+      <SpeedDialTooltipOpen />
     </div>
   );
 };

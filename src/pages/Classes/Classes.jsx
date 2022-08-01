@@ -1,4 +1,3 @@
-import { SpellcheckOutlined } from "@mui/icons-material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import SpeedDialTooltipOpen from "../../components/Dropdown/Dropdown";
@@ -6,6 +5,7 @@ import Header from "../../components/Header/Header";
 import JoinedClasses from "../../components/JoinedClasses/JoinedClasses";
 import "./style.css"
 import { useSelector } from "react-redux";
+import ClassHeader from "../../components/ClassHeader/ClassHeader";
 
 const Classes = () => {
 
@@ -32,17 +32,17 @@ const Classes = () => {
         {
             id: 1234,
             owner: 'prashant@gmail.com',
-            className: 'First Class'
+            class_name: 'First Class'
         },
         {
             id: 1234,
             owner: 'prashant@gmail.com',
-            className: 'First Class'
+            class_name: 'First Class'
         },
         {
             id: 1234,
             owner: 'prashant@gmail.com',
-            className: 'First Class'
+            class_name: 'First Class'
         },
         {
             classroom_code: 723618623534,
@@ -53,7 +53,7 @@ const Classes = () => {
 
     return (
         <>
-            <Header />
+            <ClassHeader />
             {classesArray_.map(classData => {
                 return (
                     <JoinedClasses classData={classData} />

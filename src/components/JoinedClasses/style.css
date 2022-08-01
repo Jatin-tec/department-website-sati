@@ -62,11 +62,11 @@ ol {
   font-family: "Roboto";
   text-decoration: none;
 }
-.joined__title h2 {
+.joined__title{
   font-weight: 400;
 }
-.joined__title h2:hover {
-  text-decoration: underline;
+.joined__title:hover {
+  opacity: 60%;
 }
 .joined__owner {
   color: white;

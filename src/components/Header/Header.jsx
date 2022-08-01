@@ -33,7 +33,7 @@ const Header = (props) => {
     props.toggleJoinClassDialog()
   };
 
-  const firstName = props.auth.auth.profile.facultyName
+  const firstName = props.auth.auth && props.auth.auth.profile.facultyName
 
   return (
     <div className={classes.root}>
@@ -68,7 +68,7 @@ const Header = (props) => {
             </Menu>
 
             <div>
-              <Avatar sx={{ bgcolor: deepOrange[500] }}>{firstName[0].toUpperCase()}</Avatar>
+              <Avatar sx={{ bgcolor: deepOrange[500] }}>{firstName && firstName[0].toUpperCase()}</Avatar>
             </div>
 
           </div>

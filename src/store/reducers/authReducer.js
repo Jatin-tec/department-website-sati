@@ -6,7 +6,7 @@ const profile = sessionStorage.getItem('profile');
 
 const initialiState = {
     isLoaded: access ? true : false,
-    isEmpty: access ? false : false,
+    isEmpty: access ? false : true,
     authError: null,
     auth: access ? {
         access,
