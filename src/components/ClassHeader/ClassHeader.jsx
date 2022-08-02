@@ -12,12 +12,13 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
+import AddIcon from '@mui/icons-material/Add';
 import { connect, useSelector } from 'react-redux';
 import { logout } from '../../store/actions/authActions';
 import { toggleCreateClassDialog, toggleJoinClassDialog } from '../../store/actions/localStateActions';
 import CreateClass from '../CreateClass/CreateClass';
 import JoinClass from '../JoinClass/JoinClass';
-
+import "./style.css"
 const settings = [
     {
         title: 'Profile',
@@ -168,13 +169,14 @@ const ClassHeader = (props) => {
                             <MenuItem onClick={handleJoin}>Join Class</MenuItem>
                             <MenuItem onClick={handleCreate}>Create Class</MenuItem>
                         </Menu>
-
+                        <div className='AddIcon'><AddIcon/></div>
                         <Box sx={{ flexGrow: 0 }}>
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                     <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                                 </IconButton>
                             </Tooltip>
+                            
                             <Menu
                                 sx={{ mt: '45px' }}
                                 id="menu-appbar"
@@ -196,10 +198,14 @@ const ClassHeader = (props) => {
                                         <Typography textAlign="center" onClick={() => redirect(setting.path)}>{setting.title}</Typography>
                                     </MenuItem>
                                 ))}
+                                
                             </Menu>
+                            
                         </Box>
                     </Toolbar>
+                    
                 </Container>
+                
             </AppBar>
             <CreateClass />
             <JoinClass />
