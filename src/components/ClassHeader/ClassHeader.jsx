@@ -83,7 +83,7 @@ const ClassHeader = (props) => {
 
     return (
         <>
-            <AppBar position="static">
+            <AppBar position="sticky" color={'action'} >
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -120,8 +120,9 @@ const ClassHeader = (props) => {
                                 }}
                                 open={Boolean(anchorElNav)}
                                 onClose={handleCloseNavMenu}
+                                color={'error'}
                                 sx={{
-                                    display: { xs: 'block', md: 'none' },
+                                    display: { xs: 'block', md: 'none', color: 'black'},
                                 }}
                             >
                                 {pages.map((page, index) => (
@@ -156,7 +157,7 @@ const ClassHeader = (props) => {
                                     <Button
                                         key={index}
                                         onClick={handleCloseNavMenu}
-                                        sx={{ my: 2, color: 'white', display: 'block' }}
+                                        sx={{ my: 2, color: 'black', display: 'block' }}
                                     >
                                         {page.title}
                                     </Button>
@@ -176,9 +177,9 @@ const ClassHeader = (props) => {
                         </Menu>
 
                         <div className='AddIcon'>
-                        <Fab className='IconCointainer' color="primary" aria-label="add">
-                        <AddIcon  onClick={handleClick} />
-      </Fab>  
+                            <Fab className='IconCointainer' color="primary" aria-label="add">
+                                <AddIcon onClick={handleClick} />
+                            </Fab>
                             <Menu
                                 id="simple-menu"
                                 anchorEl={anchorEl}
