@@ -19,6 +19,7 @@ import { logout } from '../../store/actions/authActions';
 import { toggleCreateClassDialog, toggleJoinClassDialog } from '../../store/actions/localStateActions';
 import CreateClass from '../CreateClass/CreateClass';
 import JoinClass from '../JoinClass/JoinClass';
+import Fab from '@mui/material/Fab';
 import "./style.css"
 const settings = [
     {
@@ -175,7 +176,9 @@ const ClassHeader = (props) => {
                         </Menu>
 
                         <div className='AddIcon'>
-                            <AddIcon onClick={handleClick} />
+                        <Fab className='IconCointainer' color="primary" aria-label="add">
+                        <AddIcon  onClick={handleClick} />
+      </Fab>  
                             <Menu
                                 id="simple-menu"
                                 anchorEl={anchorEl}

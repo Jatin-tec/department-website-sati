@@ -10,7 +10,10 @@ body {
   min-width: 18.75rem;
 }
 
-
+.AllCointainer{
+  
+  margin-right: 1% !important;
+}
 
 
 
@@ -87,7 +90,7 @@ table {
 .AttendenceData {
   width: 10.0625rem;
   padding: 0.75rem 1rem;
-  text-align: left;
+  text-align: center;
   vertical-align: top;
   box-sizing: border-box;
   border-bottom: 0.0625rem solid #e0e0e0;
@@ -119,7 +122,7 @@ td:hover{
     transform: translate(0px, 0px);
     display: table-cell;
     vertical-align: inherit;
-    font-weight: bold;
+    font-weight: 500;
     text-align: -internal-center;
 }
 
@@ -129,12 +132,18 @@ td:hover{
 .TotalAttendence{
   text-align: center;
 }
+.AttendenceDataFill{
+  padding-left:0 ;
+}
 /*below this,css of the attendence page */
 td{
   padding-left: 16px;
 }
+
 .heading{
   margin: 1em 0 0 5px;
+  font-weight: lighter;
+  color: #747474;
 }
 .present{
   color: black;
@@ -223,7 +232,10 @@ input[type='radio']{
   border-color: black;
 
 }
-
+.AttendenceSubmitButton{
+  position: relative;
+  right: 21%;
+}
 #Attendence-submit:hover {
   background-color: #1e79eb; /* Green */
   color: white;

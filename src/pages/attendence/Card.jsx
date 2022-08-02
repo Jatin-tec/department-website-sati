@@ -23,7 +23,7 @@ function Card(props) {
   <label htmlFor="Holiday" className="holiday">Holiday</label>
 </div>
     </td>
-    <td><div className="TotalAttendence">{props.attendence}</div></td>
+    <td className="AttendenceDataFill"><div className="TotalAttendence">{props.attendence}</div></td>
     </tr>
     
   );
