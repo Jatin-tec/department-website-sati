@@ -19,8 +19,8 @@ export const joinClass = (email, password) => {
 export const createClass = (classAbout) => {
     return async (dispatch, getState) => {
         const state = getState();
-        const faculty_id = state.auth.auth.profile.email;
-        const faculty_email = state.auth.auth.profile.email;
+        const faculty_id = state.auth.profile.email;
+        const faculty_email = state.auth.profile.email;
         console.log(`SecretAuth ${sessionStorage.getItem('access')}`)
         try {
             const { className, section, subjectCode, branch } = classAbout;

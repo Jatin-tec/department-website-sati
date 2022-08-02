@@ -17,7 +17,7 @@ const pages = [
 const Classes = (props) => {
 
     const [classesArray_, setClasses] = useState([]);
-    const userEmail = useSelector(state => state.auth.auth.profile.email);
+    const userEmail = useSelector(state => state.auth.profile.email);
 
     useEffect(() => {
         (async () => {
