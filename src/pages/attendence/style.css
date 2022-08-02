@@ -10,35 +10,125 @@ body {
   min-width: 18.75rem;
 }
 
+
+
+
+
+
+
+
 * {
   padding: 0;
   margin: 0;
 }
 table {
-  border:1px solid black;
+  margin-top: 1em;
+  border-bottom: 0.0625rem solid #e0e0e0;
+  border-right: 0.0625rem solid #e0e0e0;
+  border-left: 0.0625rem solid #e0e0e0;
+  border-top: 0.0625rem solid #e0e0e0;
+  
+  background: #fff;
 }
-table{
-position: relative;
-left: 1%;
-  width: 98%;
-  margin: 16px 0 0 0;
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  height: 1px;
+  overflow: hidden;
+  position: relative;
+  table-layout: fixed;
+}
+.UserEnrollment {
+  width: 10.0625rem;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  box-sizing: border-box;
+  height: 100%;
+  border-bottom: 0.0625rem solid #e0e0e0;
+  border-right: 0.0625rem solid #e0e0e0;
+  background: #f8f9fa;
 }
 
+.UserName{
+  width: 10.0625rem;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  box-sizing: border-box;
+  border-bottom: 0.0625rem solid #e0e0e0;
+  border-right: 0.0625rem solid #e0e0e0;
+  height: 100%;
+  background: #f8f9fa;
+}
 
+.UserEmail {
+  width: 10.0625rem;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  box-sizing: border-box;
+  border-bottom: 0.0625rem solid #e0e0e0;
+  border-right: 0.0625rem solid #e0e0e0;
+  height: 100%;
+  background: #f8f9fa;
+}
+.Today {
+  width: 16.0625rem;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  box-sizing: border-box;
+  border-bottom: 0.0625rem solid #e0e0e0;
+  border-right: 0.0625rem solid #e0e0e0;
+  height: 100%;
+  background: #f8f9fa;
+}
+.AttendenceData {
+  width: 10.0625rem;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  box-sizing: border-box;
+  border-bottom: 0.0625rem solid #e0e0e0;
+  border-right: 0.0625rem solid #e0e0e0;
+  height: 100%;
+  background: #f8f9fa;
+}
+
+.UsernameData{
+  text-align: left;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+#AttendenceUsername{
+  display: flex;
+  padding: 16px;
+  
+}
 td{
-    
+  border-bottom: 0.0625rem solid #e0e0e0;
+  border-right: 0.0625rem solid #e0e0e0;
   text-align: left;
 }
-th{
-    position: relative;
-left: 1.5%;
-  text-align: left;
+td:hover{
+  background: #f8f9fa;;
+}
+
+  th {
+    transform: translate(0px, 0px);
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
 }
 
 .attendence-status{
     color: rgb(3, 3, 3);
 }
-
+.TotalAttendence{
+  text-align: center;
+}
 /*below this,css of the attendence page */
 td{
   padding-left: 16px;

@@ -3,6 +3,8 @@ import './style.css';
 import contacts from "./contacts";
 import Card from "./Card";
 import SpeedDialTooltipOpen from "../../components/Dropdown/Dropdown"
+import Container from '@mui/material/Container';
+
 
 const date = new Date();
 var today="Take attendence of "+date.getDate()+"/"+date.getMonth()+"/"+date.getFullYear();
@@ -20,16 +22,18 @@ function createCard(contacts){
 
 function Attendence(){
 return(
+  <Container maxWidth='lg'>
  <div>
   <form>
   <h1 className="heading">Attendence of the Students of AIADS</h1>
   <table>
   <tr>
-    <th>Name</th>
-    <th>Enrollment number</th>
-    <th>Email</th>
-    <th>{today}</th>
-    <th>Attendence</th>
+    <th>
+    <div className="UserName">Name</div></th>
+    <th><div className="UserEnrollment">Enrollment number</div></th>
+    <th><div className="UserEmail">Email</div></th>
+    <th><div className="Today">{today}</div></th>
+    <th><div className="AttendenceData">Total Attendence</div></th>
   </tr>
   {contacts.map(createCard)}
  
@@ -41,7 +45,7 @@ return(
   </form>
   <SpeedDialTooltipOpen/>
   </div>
-
+</Container>
 )
 }
 
