@@ -6,6 +6,7 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import Avatar from '@mui/material/Avatar';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import "./style.css"
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -22,6 +23,7 @@ const DetailedPeople = () => {
         <div className="TeacherCointainer">
             <div className="TeacherCointainerData">
                 <h2 className="Teachers-Students">Teachers</h2>
+                <div className="Three-Dots"><span><PersonAddAltIcon color="action"/></span></div>
             </div>
             <table className="TeacherTable">
                 <tbody>
@@ -39,6 +41,7 @@ const DetailedPeople = () => {
         <div className="TeacherCointainer">
             <div className="TeacherCointainerData">
                 <h2 className="Teachers-Students">Students</h2>
+                <div className="Three-Dots"><span><PersonAddAltIcon color="action"/></span></div>
             </div>
             <table className="TeacherTable">
                 <tbody>
@@ -66,9 +69,12 @@ const DetailedPeople = () => {
                     <td>
                         <div className="Teacher-tr-div">
                             <span className="TeacherAvatar"><Avatar/></span>
-                            <span className="TeachersName">Hersel Betichod</span>
+                            <span className="TeachersName">Hersel Betichod  </span>
+                            <div className="DeleteIcon"></div>
                         </div>
                         </td>
+                        
+                       
                         </tr>
                 </tbody>
             </table>

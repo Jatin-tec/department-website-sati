@@ -22,8 +22,9 @@ function createCard(contacts){
 
 function Attendence(){
 return(
-  <Container className="AllCointainer" maxWidth='lg'>
+  
  <div>
+ <Container className="AllCointainer" maxWidth='lg'>
   <form>
   <h2 className="heading">Attendence of the Students of AIADS</h2>
   <table>
@@ -43,10 +44,13 @@ return(
  <div className="AttendenceSubmitButton">
   <button id="Attendence-submit" type="submit">Submit</button>
   </div>
+  
   </form>
+  </Container>
   <SpeedDialTooltipOpen/>
+  
   </div>
-</Container>
+
 )
 }
 

@@ -335,3 +335,6 @@ overflow: hidden;
 #filled-multiline-flexible{
   
 }
+#file-input{
+  display: none;
+}

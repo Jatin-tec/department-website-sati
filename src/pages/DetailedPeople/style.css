@@ -82,6 +82,7 @@ align-items: center;
     
         align-items: center;
         display: flex;
+        flex-direction: row;
     }
 .TeacherAvatar{
     flex: 0 0 2.5rem;
@@ -106,4 +107,9 @@ align-items: center;
 }
 tbody:hover{
     background: #d5eafd;
+}
+
+.Three-Dots {
+    padding: 0.5rem 1.5rem 0 0;
+    margin-bottom: -0.25rem;
 }

@@ -126,7 +126,7 @@ const ClassHeader = (props) => {
                             >
                                 {pages.map((page, index) => (
                                     <MenuItem key={index} onClick={handleCloseNavMenu}>
-                                        <Typography textAlign="center">{page.title}</Typography>
+                                       <Typography textAlign="center">{page.title}</Typography>
                                     </MenuItem>
                                 ))}
                             </Menu>

@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import UploadIcon from '@mui/icons-material/Upload';
 import "./style.css";
 import Announcment from "../../components/Announcment/Announcment";
-import Header from "../../components/Header/Header";
 import { useParams, useLocation } from 'react-router-dom';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import SpeedDialTooltipOpen from "../../components/Dropdown/Dropdown";
@@ -121,12 +120,13 @@ const Main = (props) => {
                       />
                       <div className="MainButtons">
                         <div className="LeftButton">
-                          <input
-                            onChange={handleChange}
-                            variant="outlined"
-                            color="primary"
-                            type="file"
-                          ></input>
+
+                        <div class="upload">
+  <label for="file-input">
+    <UploadIcon fontSize="medium"/>
+  </label>
+  <input id="file-input" type="file"  onChange={handleChange} />
+</div>
                         </div>
                         <div className="BottomButtons">
                           <div className="AnnouncementButton">
