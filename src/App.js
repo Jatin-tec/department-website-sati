@@ -11,7 +11,7 @@ const App = () => {
 
   return (
     <>
-      <ClassHeader />
+      {auth.isEmpty ? null : <ClassHeader /> }
       <Routes>
         {
           publicRoutes.map((route, idx) => {

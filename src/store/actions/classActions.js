@@ -2,12 +2,15 @@ import axios from "axios"
 import { JOIN_CLASS, JOIN_CLASS_ERROR, CREATE_CLASSS_SUCCESS, CREATE_CLASSS_ERROR } from "../actionTypes/classActionTypes";
 import uuid from 'react-uuid'
 
-export const joinClass = (email, password) => {
+export const joinClass = (classCode) => {
     return async (dispatch, getState) => {
+        const state = getState();
+        const email = state.auth.profile.email
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/token/', {
-                "email": email,
-                "password": password
+            const response = await axios.post('http://127.0.0.1:8000/student/student-classroom', {
+                "uid": uuid(),
+                "student": email,
+                "class_room": classCode
             })
             dispatch({ type: JOIN_CLASS, payload: response.data })
         } catch (err) {

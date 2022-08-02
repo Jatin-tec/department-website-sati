@@ -10,6 +10,8 @@ import {
 import { Close } from "@material-ui/icons";
 import { connect } from "react-redux";
 import { toggleJoinClassDialog } from "../../store/actions/localStateActions";
+import { joinClass } from "../../store/actions/classActions";
+import { logout } from "../../store/actions/authActions";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -20,11 +22,10 @@ const JoinClass = (props) => {
   const [classCode, setClassCode] = useState("");
   const [email, setemail] = useState("");
   const [error, setError] = useState();
-  const [joinedData, setJoinedData] = useState();
-  const [classExists, setClassExists] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    props.joinClass(classCode);
   };
 
   return (
@@ -55,21 +56,21 @@ const JoinClass = (props) => {
           </div>
           <div className="joinClass__form">
             <p className="joinClass__formText">
-              You're currently signed in as {props.auth.auth && props.auth.auth.profile.email}
+              You're currently signed in as {props.auth && props.auth.profile.email}
             </p>
             <div className="joinClass__loginInfo">
               <div className="joinClass__classLeft">
                 <Avatar src={'loggedInUser?.photoURL'} />
                 <div className="joinClass__loginText">
                   <div className="joinClass__loginName">
-                  {props.auth.auth && props.auth.auth.profile.email}
+                  {props.auth && `${props.auth.profile.firstName} ${props.auth.profile.lastName}`}
                   </div>
                   <div className="joinClass__loginEmail">
-                  {props.auth.auth && props.auth.auth.profile.email}
+                  {props.auth && props.auth.profile.email}
                   </div>
                 </div>
               </div>
-              <Button variant="outlined" color="primary">
+              <Button variant="outlined" color="primary" onClick={props.logout}>
                 Logout
               </Button>
             </div>
@@ -122,7 +123,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // toggleCreateClassDialog: () => dispatch(toggleCreateClassDialog()),
+    joinClass: (classCode) => dispatch(joinClass(classCode)),
+    logout: () => dispatch(logout()),
     toggleJoinClassDialog: () => dispatch(toggleJoinClassDialog())
   }
 }

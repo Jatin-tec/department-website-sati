@@ -6,7 +6,8 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
+import { Avatar } from '@material-ui/core';
+import { deepOrange } from '@mui/material/colors';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
@@ -42,10 +43,11 @@ const ClassHeader = (props) => {
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-   
+
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const handleClick = (event) => setAnchorEl(event.currentTarget);
     const handleClose = () => setAnchorEl(null);
-   
+
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
     };
@@ -75,6 +77,8 @@ const ClassHeader = (props) => {
     };
 
     const pages = useSelector(state => state.header.titles)
+    const firstName = useSelector(state => state.auth.profile.firstName)
+    const lastName = useSelector(state => state.auth.profile.lastName)
 
     return (
         <>
@@ -169,14 +173,28 @@ const ClassHeader = (props) => {
                             <MenuItem onClick={handleJoin}>Join Class</MenuItem>
                             <MenuItem onClick={handleCreate}>Create Class</MenuItem>
                         </Menu>
-                        <div className='AddIcon'><AddIcon/></div>
+
+                        <div className='AddIcon'>
+                            <AddIcon onClick={handleClick} />
+                            <Menu
+                                id="simple-menu"
+                                anchorEl={anchorEl}
+                                keepMounted
+                                open={Boolean(anchorEl)}
+                                onClose={handleClose}
+                            >
+                                <MenuItem onClick={handleJoin}>Join Class</MenuItem>
+                                <MenuItem onClick={handleCreate}>Create Class</MenuItem>
+                            </Menu>
+                        </div>
+
                         <Box sx={{ flexGrow: 0 }}>
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                    <Avatar sx={{ bgcolor: deepOrange[500] }}>{firstName && firstName[0].toUpperCase() + lastName[0].toUpperCase()}</Avatar>
                                 </IconButton>
                             </Tooltip>
-                            
+
                             <Menu
                                 sx={{ mt: '45px' }}
                                 id="menu-appbar"
@@ -198,14 +216,14 @@ const ClassHeader = (props) => {
                                         <Typography textAlign="center" onClick={() => redirect(setting.path)}>{setting.title}</Typography>
                                     </MenuItem>
                                 ))}
-                                
+
                             </Menu>
-                            
+
                         </Box>
                     </Toolbar>
-                    
+
                 </Container>
-                
+
             </AppBar>
             <CreateClass />
             <JoinClass />
