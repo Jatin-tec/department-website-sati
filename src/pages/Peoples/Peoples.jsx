@@ -35,7 +35,7 @@ const People = () => {
         },
     ]
 
-    const userName = useSelector(state => state.auth.auth.profile.email)
+    const userName = useSelector(state => state.auth.profile.email)
 
     return (
         <React.Fragment>

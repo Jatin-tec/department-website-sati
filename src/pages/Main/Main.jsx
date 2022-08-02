@@ -65,102 +65,102 @@ const Main = (props) => {
 
   return (
     <Container maxWidth="lg">
-   <div className="MainCointainer">
-    <div className="TopCointainerWrapper">
-      <div className="TopCointainer">
-        <div className="ImgCointainer"> <div className="Filler"></div> </div>
-        <div className="TopCointainerContent">
-        <h1 className="TopHeading">class1</h1>
-        <div className="Paragraph">detail</div>
-        </div>
-      </div>
-    </div>
-    <div className="BottomCointainer">
-    <aside className="Shrink">
-      <div className="LeftCointainer">
-        <div >
-          <div className="First">
-            <div className="FirstContent"><span class="ClassCode">Class code</span></div>
-            <div className="FirstContent">
-            <div className="ShowClassCode">
-            <html-Blob>
-            <span style={{whiteSpace: "pre-wrap"}}>ym24kue</span>
-            </html-Blob>
-            </div>
-            <div className="CopyIcon"><CropFreeIcon/></div>
+      <div className="MainCointainer">
+        <div className="TopCointainerWrapper">
+          <div className="TopCointainer">
+            <div className="ImgCointainer"> <div className="Filler"></div> </div>
+            <div className="TopCointainerContent">
+              <h1 className="TopHeading">{classData.class_name}</h1>
+              <div className="Paragraph">{classData.subject}</div>
             </div>
           </div>
         </div>
-        <div className="Second">
-          <div className="SecondContent">
-            <h2>Upcoming</h2>
-            <div className="WorkDue">No work due</div>
-            <div className="ViewAll">View all</div>
-          </div>
-        </div>
-        
-      </div>
-    </aside>
-    <main className="RightContainer">
-        <div className="RightSection">
-            <div className="Announcement">
-              <div className="main__ancContent">
-                {showInput ? (
-                  <div className="AnnouncementSection">
-                    <TextField
-                      id="filled-multiline-flexible"
-                      multiline
-                      label="Announce Something to class"
-                      variant="filled"
-                      value={inputValue}
-                      onChange={(e) => setInput(e.target.value)}
-                    />
-                    <div className="MainButtons">
-                    <div className="LeftButton">
-                      <input
-                        onChange={handleChange}
-                        variant="outlined"
-                        color="primary"
-                        type="file"
-                      />
-                      </div>
-        <div className="BottomButtons">
-                      <div className="AnnouncementButton">
-                        
-                        
-                        <Button onClick={() => setShowInput(false)}>
-                          Cancel
-                        </Button>
+        <div className="BottomCointainer">
+          <aside className="Shrink">
+            <div className="LeftCointainer">
+              <div >
+                <div className="First">
+                  <div className="FirstContent"><span class="ClassCode">Class code</span></div>
+                  <div className="FirstContent">
+                    <div className="ShowClassCode">
+                      <html-Blob>
+                        <span style={{ whiteSpace: "pre-wrap" }}>{classData.classroom_code}</span>
+                      </html-Blob>
+                    </div>
+                    <div className="CopyIcon"><CropFreeIcon /></div>
+                  </div>
+                </div>
+              </div>
+              <div className="Second">
+                <div className="SecondContent">
+                  <h2>Upcoming</h2>
+                  <div className="WorkDue">No work due</div>
+                  <div className="ViewAll">View all</div>
+                </div>
+              </div>
 
-                        <Button
-                          onClick={() => { }}
-                          color="primary"
-                          variant="contained"
-                        >
-                          Post
-                        </Button>
-                        
-                      </div>
+            </div>
+          </aside>
+          <main className="RightContainer">
+            <div className="RightSection">
+              <div className="Announcement">
+                <div className="main__ancContent">
+                  {showInput ? (
+                    <div className="AnnouncementSection">
+                      <TextField
+                        id="filled-multiline-flexible"
+                        multiline
+                        label="Announce Something to class"
+                        variant="filled"
+                        value={inputValue}
+                        onChange={(e) => setInput(e.target.value)}
+                      />
+                      <div className="MainButtons">
+                        <div className="LeftButton">
+                          <input
+                            onChange={handleChange}
+                            variant="outlined"
+                            color="primary"
+                            type="file"
+                          />
+                        </div>
+                        <div className="BottomButtons">
+                          <div className="AnnouncementButton">
+
+
+                            <Button onClick={() => setShowInput(false)}>
+                              Cancel
+                            </Button>
+
+                            <Button
+                              onClick={() => { }}
+                              color="primary"
+                              variant="contained"
+                            >
+                              Post
+                            </Button>
+
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ) : (
-                  <div
-                    className="AnnouncementContent"
-                    onClick={() => setShowInput(true)}
-                  >
-                   <div className="AnnouncementAvatar"> <Avatar /></div>
-                    <div className="AnnouncementText">Announce Something to class</div>
-                  </div>
-                )}
+                  ) : (
+                    <div
+                      className="AnnouncementContent"
+                      onClick={() => setShowInput(true)}
+                    >
+                      <div className="AnnouncementAvatar"> <Avatar /></div>
+                      <div className="AnnouncementText">Announce Something to class</div>
+                    </div>
+                  )}
+                </div>
               </div>
+              <Announcment classData={'classData'} />
             </div>
-            <Announcment classData={'classData'} />
-          </div>
-          
-        </main>
-    </div>
-   </div>
+
+          </main>
+        </div>
+      </div>
     </Container>
   );
 };
