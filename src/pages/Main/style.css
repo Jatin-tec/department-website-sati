@@ -218,11 +218,11 @@ margin-bottom: 1.5rem;
   margin-top: 2px;
   outline: none;
   
-    background-color: #cbced2;
+    background-color: #fcfcfc;
     border-radius: 4px 4px 0 0;
     padding: 10px 16px;
     padding-top: 22px;
-
+  
     padding-top: 24px;
 
     width: 100%;
@@ -253,4 +253,85 @@ margin-bottom: 1.5rem;
     flex-direction: row;
     margin-top: 1rem;
     margin-left: 1rem;
+}
+.AnnounceData{
+  cursor: pointer;
+    background-color: #fff;
+    border: 0.0625rem solid #dadce0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+.DataCointainer{
+  padding: 0.5rem 0;
+}
+.DataCointainer:hover{
+  background-color: #e7f2fa;
+}
+.AnnounceDataContent{
+  height: 3.5rem;
+    padding-right: 0.5rem;
+    white-space: nowrap;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+
+}
+.AnnounceAvatar{
+color: #fff;
+    cursor: default;
+    flex-shrink: 0;
+    height: 2.5rem;
+    line-height: 0;
+    margin: 0 1rem 0 1.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+}
+
+.AnnounceAvatar {
+    background-color: #3c4043;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.DetailedContent{
+overflow: hidden;
+}
+
+
+.ContentInAnnouncement h2 {
+  letter-spacing: .01785714em;
+  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  color: #3c4043;
+  text-transform: none;
+}
+.DotIcon{
+  justify-items: right;
+  margin-left: 50%;
+}
+.UsernameInAnnouncement {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+.UsernameInAnnouncementcontent {
+  letter-spacing: .01785714em;
+  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  color: #3c4043;
+}
+
+.UsernameInAnnouncementcontent {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
+}
+#filled-multiline-flexible{
+  
 }

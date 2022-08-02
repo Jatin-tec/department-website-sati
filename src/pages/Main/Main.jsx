@@ -1,5 +1,6 @@
 import { Avatar, Button, TextField } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
+import UploadIcon from '@mui/icons-material/Upload';
 import "./style.css";
 import Announcment from "../../components/Announcment/Announcment";
 import Header from "../../components/Header/Header";
@@ -10,6 +11,9 @@ import { connect } from "react-redux";
 import { updateHeaderTitle } from "../../store/actions/headerActionState";
 import Container from '@mui/material/Container';
 import CropFreeIcon from '@mui/icons-material/CropFree';
+import AssignmentIcon from '@mui/icons-material/Assignment';  
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 function CopyToClipboard() {
   /* Get the text field */
   var copyText = "Hello";
@@ -87,7 +91,7 @@ const Main = (props) => {
                         <span style={{ whiteSpace: "pre-wrap" }}>{classData.classroom_code}</span>
                       </html-Blob>
                     </div>
-                    <div className="CopyIcon"><CropFreeIcon /></div>
+                    <div className="CopyIcon"><ContentCopyIcon /></div>
                   </div>
                 </div>
               </div>
@@ -122,7 +126,7 @@ const Main = (props) => {
                             variant="outlined"
                             color="primary"
                             type="file"
-                          />
+                          ></input>
                         </div>
                         <div className="BottomButtons">
                           <div className="AnnouncementButton">
@@ -157,7 +161,49 @@ const Main = (props) => {
               </div>
               <Announcment classData={'classData'} />
             </div>
-
+            <div className="AnnounceData">
+              <div className="DataCointainer">
+                <div className="AnnounceDataContent">
+                  <div className="AnnounceAvatar">
+{/* Add Icon here */}
+                  <QuestionMarkIcon/>
+                  
+                  </div>
+                  <div className="DetailedContent">
+                    <div className="ContentInAnnouncement">
+                    <h2></h2>
+                    <div class="UsernameInAnnouncement">
+                    <span class="UsernameInAnnouncementcontent">Eyepatch#0701 MereSawaloo ka jawaab do</span>
+                    </div>
+                    </div>
+                    
+                  </div>
+                  <div className="DotIcon"><MoreVertIcon/></div>
+                </div>
+              </div>
+            </div>
+            <div className="AnnounceData">
+              <div className="DataCointainer">
+                <div className="AnnounceDataContent">
+                  <div className="AnnounceAvatar">
+{/* Add Icon here */}
+                  <AssignmentIcon/>
+                  
+                  </div>
+                  <div className="DetailedContent">
+                    <div className="ContentInAnnouncement">
+                    <h2></h2>
+                    <div class="UsernameInAnnouncement">
+                    <span class="UsernameInAnnouncementcontent">Eyepatch#0701 posted a new assignment: sss</span>
+                    </div>
+                    </div>
+                    
+                  </div>
+                  <div className="DotIcon"><MoreVertIcon/></div>
+                </div>
+              </div>
+            </div>
+             
           </main>
         </div>
       </div>
