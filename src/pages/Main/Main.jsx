@@ -67,7 +67,6 @@ const Main = (props) => {
   const classData = location.state;
 
   return (
-    <Container maxWidth="lg">
       <div className="MainCointainer">
         <div className="TopCointainerWrapper">
           <div className="TopCointainer">
@@ -207,7 +206,6 @@ const Main = (props) => {
           </main>
         </div>
       </div>
-    </Container>
   );
 };
 

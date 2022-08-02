@@ -19,7 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const DetailedPeople = () => {
 
-    return <main className="MainCointainer">
+    return <main className="Main-Cointainer">
         <div className="TeacherCointainer">
             <div className="TeacherCointainerData">
                 <h2 className="Teachers-Students">Teachers</h2>
