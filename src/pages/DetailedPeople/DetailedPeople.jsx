@@ -6,6 +6,7 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import Avatar from '@mui/material/Avatar';
+import "./style.css"
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -17,39 +18,62 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const DetailedPeople = () => {
 
-    return (
-        <React.Fragment>
-            <CssBaseline />
-            <Container maxWidth="lg">
-                <Grid container spacing={2}>
-                    <Grid item xs={4}
-                        container
-                        direction="column"
-                        justifyContent="center"
-                        alignItems="flex-start"
-                    >
-                        <p>All</p>
-                        <p>Handed in</p>
-                        <p>Returned</p>
-                        <p>Missing</p>
-                    </Grid>
-                    <Grid item xs={8}>
-                        <Grid
-                            container
-                            direction="row"
-                            justifyContent="space-between"
-                            alignItems="center"
-                        >
-                            <Avatar>H</Avatar>
-                            <h1>Harshal</h1>
-                            <PersonAddAlt1Icon />
-                        </Grid>
-                        <hr class="solid" />
-                    </Grid>
-                </Grid>
-            </Container>
-        </React.Fragment>
-    );
+    return <main className="MainCointainer">
+        <div className="TeacherCointainer">
+            <div className="TeacherCointainerData">
+                <h2 className="Teachers-Students">Teachers</h2>
+            </div>
+            <table className="TeacherTable">
+                <tbody>
+                    <tr className="Teacher-tr">
+                    <td>
+                        <div className="Teacher-tr-div">
+                            <span className="TeacherAvatar"><Avatar/></span>
+                            <span className="TeachersName">Himanshu sir</span>
+                        </div>
+                        </td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+        <div className="TeacherCointainer">
+            <div className="TeacherCointainerData">
+                <h2 className="Teachers-Students">Students</h2>
+            </div>
+            <table className="TeacherTable">
+                <tbody>
+                    <tr className="Teacher-tr">
+                    <td>
+                        <div className="Teacher-tr-div">
+                            <span className="TeacherAvatar"><Avatar/></span>
+                            <span className="TeachersName">Jatin Kshatriya</span>
+                        </div>
+                        </td>
+                        </tr>
+                </tbody>
+                <tbody>
+                    <tr className="Teacher-tr">
+                    <td>
+                        <div className="Teacher-tr-div">
+                            <span className="TeacherAvatar"><Avatar/></span>
+                            <span className="TeachersName">Prashant Patel</span>
+                        </div>
+                        </td>
+                        </tr>
+                </tbody>
+                <tbody>
+                    <tr className="Teacher-tr">
+                    <td>
+                        <div className="Teacher-tr-div">
+                            <span className="TeacherAvatar"><Avatar/></span>
+                            <span className="TeachersName">Hersel Betichod</span>
+                        </div>
+                        </td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
 }
 
 export default DetailedPeople;

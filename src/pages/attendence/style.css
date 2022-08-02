@@ -114,9 +114,7 @@ td{
   border-right: 0.0625rem solid #e0e0e0;
   text-align: left;
 }
-td:hover{
-  background: #f8f9fa;;
-}
+
 
   th {
     transform: translate(0px, 0px);
