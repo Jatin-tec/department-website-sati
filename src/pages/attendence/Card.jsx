@@ -10,10 +10,10 @@ function Card(props) {
       <td id="AttendenceUsername">
       <div className="Avatar"><Avatar/></div>
       <div className="UsernameData">{props.name}</div></td>
-      <td> <div className="enrollment">{props.enrollment}</div></td>
-      <td><div className="email">{props.email}</div></td>
+      <td className="Mobile"> <div className="enrollment">{props.enrollment}</div></td>
+      <td className="DisplayNone"><div className="email">{props.email}</div></td>
       
-      <td >
+      <td className="Buttons-Attendence">
       <div className="attendence-status">
         <input type="radio" id="present" name={`${props.enrollment}`} value="Present"/>
   <label htmlFor="Present" className="present">Present</label>
@@ -23,7 +23,7 @@ function Card(props) {
   <label htmlFor="Holiday" className="holiday">Holiday</label>
 </div>
     </td>
-    <td className="AttendenceDataFill"><div className="TotalAttendence">{props.attendence}</div></td>
+    <td className="AttendenceDataFill DisplayNone"><div className="TotalAttendence">{props.attendence}</div></td>
     </tr>
     
   );

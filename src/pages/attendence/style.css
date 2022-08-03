@@ -30,19 +30,12 @@ table {
   border-right: 0.0625rem solid #e0e0e0;
   border-left: 0.0625rem solid #e0e0e0;
   border-top: 0.0625rem solid #e0e0e0;
-  
   background: #fff;
+  width: 62.5rem;
 }
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  height: 1px;
-  overflow: hidden;
-  position: relative;
-  table-layout: fixed;
-}
+
 .UserEnrollment {
-  width: 10.0625rem;
+  width: 12.0625rem;
   padding: 0.75rem 1rem;
   text-align: left;
   vertical-align: top;
@@ -54,7 +47,7 @@ table {
 }
 
 .UserName{
-  width: 10.0625rem;
+  width: 12.0625rem;
   padding: 0.75rem 1rem;
   text-align: left;
   vertical-align: top;
@@ -66,7 +59,7 @@ table {
 }
 
 .UserEmail {
-  width: 10.0625rem;
+  width: 11.0625rem;
   padding: 0.75rem 1rem;
   text-align: left;
   vertical-align: top;
@@ -77,7 +70,7 @@ table {
   background: #f8f9fa;
 }
 .Today {
-  width: 16.0625rem;
+  width: 17.0625rem;
   padding: 0.75rem 1rem;
   text-align: left;
   vertical-align: top;
@@ -241,3 +234,62 @@ input[type='radio']{
   color: white;
 }
 /* attendence page css ends here*/
+@media only screen and (max-width: 1000px) {
+  .DisplayNone {
+    display: none;
+  }
+  
+.UserEnrollment {
+  width: auto;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  box-sizing: border-box;
+  height: 100%;
+  border-bottom: 0.0625rem solid #e0e0e0;
+  border-right: 0.0625rem solid #e0e0e0;
+  background: #f8f9fa;
+}
+
+.UserName{
+  width: auto;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  box-sizing: border-box;
+  border-bottom: 0.0625rem solid #e0e0e0;
+  border-right: 0.0625rem solid #e0e0e0;
+  height: 100%;
+  background: #f8f9fa;
+}
+  .Today{
+    width: auto;
+  }
+  .AttendenceSubmitButton{
+    position: relative;
+    right: 10%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+.Mobile{
+  display: none;
+}
+.Buttons-Attendence{
+  display: flex;
+  flex-direction: row;
+}
+.UserName{
+  width: auto;
+  
+}
+#AttendenceUsername{
+  width: 0;
+}
+.Today{
+  width: auto;
+}
+.Buttons-Attendence{
+  width: 90px;
+}
+}

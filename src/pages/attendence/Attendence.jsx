@@ -23,18 +23,17 @@ function createCard(contacts){
 function Attendence(){
 return(
   
- <div>
- <Container className="AllCointainer" maxWidth='lg'>
+ <div className="MainCointainer">
   <form>
   <h2 className="heading">Attendence of the Students of AIADS</h2>
   <table>
   <tr>
     <th>
     <div className="UserName">Name</div></th>
-    <th><div className="UserEnrollment">Enrollment number</div></th>
-    <th><div className="UserEmail">Email</div></th>
-    <th><div className="Today">{today}</div></th>
-    <th><div className="AttendenceData">Total Attendence</div></th>
+    <th className="Mobile"><div className="UserEnrollment">Enrollment number</div></th>
+    <th className="DisplayNone"><div className="UserEmail">Email</div></th>
+    <th className="Mobile-Display"><div className="Today">{today}</div></th>
+    <th className="DisplayNone"><div className="AttendenceData">Total Attendence</div></th>
   </tr>
   {contacts.map(createCard)}
  
@@ -46,7 +45,7 @@ return(
   </div>
   
   </form>
-  </Container>
+  
   <SpeedDialTooltipOpen/>
   
   </div>
