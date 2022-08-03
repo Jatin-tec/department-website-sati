@@ -156,7 +156,7 @@ const ClassHeader = (props) => {
                                 <Link key={index} to={page.path} style={{ textDecoration: 'none' }}>
                                     <Button
                                         key={index}
-                                        onClick={handleCloseNavMenu}
+                                        onClick={() => { handleCloseNavMenu();  }}
                                         sx={{ my: 2, color: 'black', display: 'block' }}
                                     >
                                         {page.title}

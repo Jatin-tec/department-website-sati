@@ -16,7 +16,7 @@ const pages = [
 
 const Classes = (props) => {
 
-    const [classesArray_, setClasses] = useState([]);
+    const [classesArray, setClasses] = useState([]);
     const userEmail = useSelector(state => state.auth.profile.email);
 
     useEffect(() => {
@@ -31,38 +31,14 @@ const Classes = (props) => {
                     }
                 }
             )
-            const headerTitles = ['Home']
             setClasses(response.data);
             props.updateHeader(pages);    
         })()
     }, [])
 
-    const classesArray = [
-        {
-            id: 1234,
-            owner: 'prashant@gmail.com',
-            class_name: 'First Class'
-        },
-        {
-            id: 1234,
-            owner: 'prashant@gmail.com',
-            class_name: 'First Class'
-        },
-        {
-            id: 1234,
-            owner: 'prashant@gmail.com',
-            class_name: 'First Class'
-        },
-        {
-            classroom_code: 723618623534,
-            owner: 'prashant@gmail.com',
-            class_name: 'First Class'
-        },
-    ]
-
     return (
         <>
-            {classesArray_.map(classData => {
+            {classesArray.map(classData => {
                 return (
                     <JoinedClasses classData={classData} />
                 )

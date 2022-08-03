@@ -20,7 +20,6 @@ const Homepage = (props) => {
 
         return (
                 <div>
-                
                         <SpeedDialTooltipOpen />
                 </div>
         )

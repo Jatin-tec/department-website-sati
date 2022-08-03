@@ -1,104 +1,111 @@
-import React from "react";
-import "./style.css";
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
-import { Grid } from "@material-ui/core";
-import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
-import Paper from '@mui/material/Paper';
-import { styled } from "@mui/material";
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import React, { useEffect } from "react";
+import "./style.css"
+
 import Avatar from '@mui/material/Avatar';
-import { useSelector } from "react-redux";
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import { updateHeaderTitle } from "../../store/actions/headerActionState";
 
-const Item = styled(Paper)(({ theme }) => ({
-    ...theme.typography.body2,
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    height: 60,
-    lineHeight: '60px',
-}));
+import { connect } from 'react-redux';
+import { useParams } from "react-router-dom";
 
-const People = () => {
+const People = (props) => {
 
-    const peoples = [
-        {
-            name: 'Harshal',
-            profile: 'H'
-        },
-        {
-            name: 'Jatin',
-            profile: 'J'
-        },
-        {
-            name: 'Himonshu',
-            profile: 'H'
-        },
-    ]
-
-    const userName = useSelector(state => state.auth.profile.email)
+    const params = useParams();
+    useEffect(() => {
+        const pages = [
+            {
+              title: 'Stream',
+              path: `/stream/${params.code}`
+            },
+            {
+              title: 'Classwork',
+              path: `/classes`
+            },
+            {
+              title: 'People',
+              path: `/peoples/${params.code}`
+            },
+            {
+              title: 'Attendence',
+              path: `/attendence/${params.code}`
+            },
+            {
+              title: 'Marks',
+              path: `/evalute/${params.code}`
+            }
+          ];
+        (async () => {
+            props.updateHeader(pages)
+        })()
+    })
 
     return (
-        <React.Fragment>
-            <CssBaseline />
-            <Container maxWidth="md">
-                <div>
-                    <Grid
-                        container
-                        direction="row"
-                        justifyContent="space-between"
-                        alignItems="center"
-                    >
-                        <h1>Teachers</h1>
-                        <PersonAddAlt1Icon />
-                    </Grid>
-                    <hr class="solid" />
-                    <Item elevation={1}>
-                        <Grid
-                            container
-                            direction="row"
-                            justifyContent="space-between"
-                            alignItems="center"
-                        >
-                            <Avatar>P</Avatar>
-                            <p>{userName}</p>
-                            <MoreVertIcon />
-                        </Grid>
-                    </Item>
+        <main className="Main-Cointainer">
+            <div className="TeacherCointainer">
+                <div className="TeacherCointainerData">
+                    <h2 className="Teachers-Students">Teachers</h2>
+                    <div className="Three-Dots"><span><PersonAddAltIcon color="action" /></span></div>
                 </div>
-                <div>
-                    <Grid
-                        container
-                        direction="row"
-                        justifyContent="space-between"
-                        alignItems="center"
-                    >
-                        <h1>Students</h1>
-                        <PersonAddAlt1Icon />
-                    </Grid>
-                    <hr class="solid" />
-                    {peoples.map((people, index) => {
-                        return (
-                            <>
-                                <Item key={index} elevation={1}>
-                                    <Grid
-                                        container
-                                        direction="row"
-                                        justifyContent="space-between"
-                                        alignItems="center"
-                                    >
-                                        <Avatar>{people.profile}</Avatar>
-                                        <p>{people.name}</p>
-                                        <MoreVertIcon />
-                                    </Grid>
-                                </Item>
-                                <hr class="solid" />
-                            </>
-                        )
-                    })}
+                <table className="TeacherTable">
+                    <tbody>
+                        <tr className="Teacher-tr">
+                            <td>
+                                <div className="Teacher-tr-div">
+                                    <span className="TeacherAvatar"><Avatar /></span>
+                                    <span className="TeachersName">Himanshu sir</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div className="TeacherCointainer">
+                <div className="TeacherCointainerData">
+                    <h2 className="Teachers-Students">Students</h2>
+                    <div className="Three-Dots"><span><PersonAddAltIcon color="action" /></span></div>
                 </div>
-            </Container>
-        </React.Fragment>
+                <table className="TeacherTable">
+                    <tbody>
+                        <tr className="Teacher-tr">
+                            <td>
+                                <div className="Teacher-tr-div">
+                                    <span className="TeacherAvatar"><Avatar /></span>
+                                    <span className="TeachersName">Jatin Kshatriya</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr className="Teacher-tr">
+                            <td>
+                                <div className="Teacher-tr-div">
+                                    <span className="TeacherAvatar"><Avatar /></span>
+                                    <span className="TeachersName">Prashant Patel</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr className="Teacher-tr">
+                            <td>
+                                <div className="Teacher-tr-div">
+                                    <span className="TeacherAvatar"><Avatar /></span>
+                                    <span className="TeachersName">Hersel Betichod  </span>
+                                    <div className="DeleteIcon"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
     );
 }
 
-export default People;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateHeader: (titles) => dispatch(updateHeaderTitle(titles))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(People)
