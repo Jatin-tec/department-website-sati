@@ -30,19 +30,12 @@ table {
   border-right: 0.0625rem solid #e0e0e0;
   border-left: 0.0625rem solid #e0e0e0;
   border-top: 0.0625rem solid #e0e0e0;
-  
   background: #fff;
+  width: 62.5rem;
 }
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  height: 1px;
-  overflow: hidden;
-  position: relative;
-  table-layout: fixed;
-}
+
 .UserEnrollment {
-  width: 10.0625rem;
+  width: 12.0625rem;
   padding: 0.75rem 1rem;
   text-align: left;
   vertical-align: top;
@@ -54,7 +47,7 @@ table {
 }
 
 .UserName{
-  width: 10.0625rem;
+  width: 12.0625rem;
   padding: 0.75rem 1rem;
   text-align: left;
   vertical-align: top;
@@ -66,7 +59,7 @@ table {
 }
 
 .UserEmail {
-  width: 10.0625rem;
+  width: 11.0625rem;
   padding: 0.75rem 1rem;
   text-align: left;
   vertical-align: top;
@@ -77,7 +70,7 @@ table {
   background: #f8f9fa;
 }
 .Today {
-  width: 16.0625rem;
+  width: 17.0625rem;
   padding: 0.75rem 1rem;
   text-align: left;
   vertical-align: top;
@@ -215,8 +208,7 @@ input[type='radio']{
   color: white;
 }
 #Attendence-submit {
-  position: absolute;
-  right: 0.7%;
+  
   border-radius: 5px;
   transition-duration: 0.4s;
   color: rgb(8, 8, 8);
@@ -233,11 +225,79 @@ input[type='radio']{
 
 }
 .AttendenceSubmitButton{
-  position: relative;
-  right: 21%;
+  width: 20px;
+  height: 10vh;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+}
+#Attendence-submit{
+  flex: 1;
 }
 #Attendence-submit:hover {
   background-color: #1e79eb; /* Green */
   color: white;
 }
 /* attendence page css ends here*/
+@media only screen and (max-width: 1000px) {
+  .DisplayNone {
+    display: none;
+  }
+  
+.UserEnrollment {
+  width: auto;
+}
+
+
+.UserName{
+  width: auto;
+  
+}
+ 
+  
+}
+
+@media only screen and (max-width: 800px) {
+.Mobile{
+  display: none;
+}
+
+.UserName{
+  width: auto;
+  
+}
+#AttendenceUsername{
+  width: 0;
+}
+
+
+.Mobile-Display{
+  width: auto;
+}
+}
+@media only screen and (max-width: 600px) {
+.Mobile{
+  display: none;
+}
+
+.UserName{
+  width: auto;
+  
+}
+#AttendenceUsername{
+  width: 0;
+}
+
+
+.Mobile-Display{
+  width: auto;
+}
+.Buttons-Attendence{
+  display: flex;
+  flex-direction: row;
+}
+.Buttons-Attendence{
+  width: 90px;
+  display: inline;
+}
+}

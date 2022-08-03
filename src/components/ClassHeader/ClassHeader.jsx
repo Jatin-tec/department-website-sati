@@ -151,9 +151,9 @@ const ClassHeader = (props) => {
                         >
                             LOGO
                         </Typography>
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                        <div className='FuckingHeader'><Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                             {pages.map((page, index) => (
-                                <Link key={index} to={page.path} style={{ textDecoration: 'none' }}>
+                                <div className='NavBar-Button'><Link key={index} to={page.path} style={{ textDecoration: 'none' }}>
                                     <Button
                                         key={index}
                                         onClick={() => { handleCloseNavMenu();  }}
@@ -161,9 +161,9 @@ const ClassHeader = (props) => {
                                     >
                                         {page.title}
                                     </Button>
-                                </Link>
+                                </Link></div>
                             ))}
-                        </Box>
+                        </Box></div>
 
                         <Menu
                             id="simple-menu"
@@ -177,7 +177,7 @@ const ClassHeader = (props) => {
                         </Menu>
 
                         <div className='AddIcon'>
-                            <Fab className='IconCointainer' color="primary" aria-label="add">
+                            <Fab className='IconCointainer' color="info" aria-label="add">
                                 <AddIcon onClick={handleClick} />
                             </Fab>
                             <Menu
@@ -191,7 +191,7 @@ const ClassHeader = (props) => {
                                 <MenuItem onClick={handleCreate}>Create Class</MenuItem>
                             </Menu>
                         </div>
-
+                        <div className='Avatar-Icon-Header'>
                         <Box sx={{ flexGrow: 0 }}>
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -224,6 +224,7 @@ const ClassHeader = (props) => {
                             </Menu>
 
                         </Box>
+                        </div>
                     </Toolbar>
 
                 </Container>
