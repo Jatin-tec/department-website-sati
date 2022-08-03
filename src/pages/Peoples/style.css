@@ -1,6 +1,4 @@
-hr.solid {
-    border-top: 1px solid #bbb;
-}
+
 .Main-Cointainer {
     margin: 0 auto;
     max-width: 47.5rem;
@@ -52,7 +50,7 @@ table {
 tbody {
     display: table-row-group;
     vertical-align: middle;
-    border-color: inherit;
+    border-color: none;
 }
 * {
     -webkit-tap-highlight-color: transparent;

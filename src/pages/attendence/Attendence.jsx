@@ -26,7 +26,7 @@ return(
  <div className="MainCointainer">
   <form>
   <h2 className="heading">Attendence of the Students of AIADS</h2>
-  <table>
+  <table className="Attendencetable">
   <tr>
     <th>
     <div className="UserName">Name</div></th>
