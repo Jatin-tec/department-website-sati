@@ -208,8 +208,7 @@ input[type='radio']{
   color: white;
 }
 #Attendence-submit {
-  position: absolute;
-  right: 0.7%;
+  
   border-radius: 5px;
   transition-duration: 0.4s;
   color: rgb(8, 8, 8);
@@ -226,8 +225,14 @@ input[type='radio']{
 
 }
 .AttendenceSubmitButton{
-  position: relative;
-  right: 21%;
+  width: 20px;
+  height: 10vh;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+}
+#Attendence-submit{
+  flex: 1;
 }
 #Attendence-submit:hover {
   background-color: #1e79eb; /* Green */
@@ -241,44 +246,22 @@ input[type='radio']{
   
 .UserEnrollment {
   width: auto;
-  padding: 0.75rem 1rem;
-  text-align: left;
-  vertical-align: top;
-  box-sizing: border-box;
-  height: 100%;
-  border-bottom: 0.0625rem solid #e0e0e0;
-  border-right: 0.0625rem solid #e0e0e0;
-  background: #f8f9fa;
 }
+
 
 .UserName{
   width: auto;
-  padding: 0.75rem 1rem;
-  text-align: left;
-  vertical-align: top;
-  box-sizing: border-box;
-  border-bottom: 0.0625rem solid #e0e0e0;
-  border-right: 0.0625rem solid #e0e0e0;
-  height: 100%;
-  background: #f8f9fa;
+  
 }
-  .Today{
-    width: auto;
-  }
-  .AttendenceSubmitButton{
-    position: relative;
-    right: 10%;
-  }
+ 
+  
 }
 
 @media only screen and (max-width: 800px) {
 .Mobile{
   display: none;
 }
-.Buttons-Attendence{
-  display: flex;
-  flex-direction: row;
-}
+
 .UserName{
   width: auto;
   
@@ -286,10 +269,35 @@ input[type='radio']{
 #AttendenceUsername{
   width: 0;
 }
-.Today{
+
+
+.Mobile-Display{
+  width: auto;
+}
+}
+@media only screen and (max-width: 600px) {
+.Mobile{
+  display: none;
+}
+
+.UserName{
+  width: auto;
+  
+}
+#AttendenceUsername{
+  width: 0;
+}
+
+
+.Mobile-Display{
   width: auto;
 }
 .Buttons-Attendence{
+  display: flex;
+  flex-direction: row;
+}
+.Buttons-Attendence{
   width: 90px;
+  display: inline;
 }
 }
