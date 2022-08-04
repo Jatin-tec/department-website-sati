@@ -3,13 +3,12 @@ import React, { useEffect, useState } from "react";
 import UploadIcon from '@mui/icons-material/Upload';
 import "./style.css";
 import Announcment from "../../components/Announcment/Announcment";
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import SpeedDialTooltipOpen from "../../components/Dropdown/Dropdown";
-import { connect } from "react-redux";
+
+import { connect, useSelector } from "react-redux";
 import { updateHeaderTitle } from "../../store/actions/headerActionState";
-import Container from '@mui/material/Container';
-import CropFreeIcon from '@mui/icons-material/CropFree';
+
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
@@ -60,9 +59,7 @@ const Main = (props) => {
     }
   };
 
-  const location = useLocation();
-  console.log(location);
-  const classData = location.state;
+  const classData = useSelector(state => state.classReducer.currentClass);
 
   return (
     <div className="MainCointainer">

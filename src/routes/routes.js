@@ -17,7 +17,7 @@ const authProtectedRoutes = [
     { path:'/attendence/:code', component:Attendence },
     { path:'/evalute/:code', component:Evalution },
     { path:'/iva', component:Viva },
-    { path:'/detailed-class/:code', component: Main},
+    { path:'/stream/:code', component: Main},
     { path:'/detailed-student', component: DetailedPeople},
 
 ]

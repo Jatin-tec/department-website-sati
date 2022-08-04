@@ -1,6 +1,7 @@
 import axios from "axios"
 import { JOIN_CLASS, JOIN_CLASS_ERROR, CREATE_CLASSS_SUCCESS, CREATE_CLASSS_ERROR } from "../actionTypes/classActionTypes";
 import uuid from 'react-uuid'
+import { UPDATE_LOCAL_CURRENT_CLASS } from "../actionTypes/authActionTypes";
 
 export const joinClass = (classCode) => {
     return async (dispatch, getState) => {
@@ -24,10 +25,10 @@ export const createClass = (classAbout) => {
         const state = getState();
         const faculty_id = state.auth.profile.email;
         const faculty_email = state.auth.profile.email;
-        console.log(`SecretAuth ${sessionStorage.getItem('access')}`)
+
         try {
             const { className, section, subjectCode, branch } = classAbout;
-            // console.log(classAbout);
+
             const response = await axios.post('http://127.0.0.1:8000/department/classroom', {
                 classroom_code: uuid(),
                 faculty_id,
@@ -49,5 +50,12 @@ export const createClass = (classAbout) => {
         } catch (err) {
             dispatch({ type: CREATE_CLASSS_ERROR, payload: err })
         }
+    }
+}
+
+export const updateCurrentClass = (classData) => {
+    return async (dispatch, getState) => {
+        console.log(classData, 'classData');
+        dispatch({ type: UPDATE_LOCAL_CURRENT_CLASS, payload: classData })
     }
 }
