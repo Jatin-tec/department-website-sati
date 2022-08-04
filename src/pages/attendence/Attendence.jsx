@@ -27,7 +27,7 @@ return(
   <form>
   <h2 className="heading">Attendence of the Students of AIADS</h2>
   <table className="Attendencetable">
-  <tr>
+  <tr className="TR-Background">
     <th>
     <div className="UserName">Name</div></th>
     <th className="Mobile"><div className="UserEnrollment">Enrollment number</div></th>

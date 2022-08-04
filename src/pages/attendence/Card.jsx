@@ -1,8 +1,18 @@
 import React from "react";
 import Avatar from '@mui/material/Avatar';
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 var total=25;
 
 function Card(props) {
+  const [Present, setStatus] = React.useState("");
+
+  const handleChange = (event) => {
+    setStatus(event.target.value);
+  };
   return (
     
       
@@ -15,12 +25,13 @@ function Card(props) {
       
       <td className="Buttons-Attendence">
       <div className="attendence-status">
-        <input type="radio" id="present" name={`${props.enrollment}`} value="Present"/>
-  <label htmlFor="Present" className="present">Present</label>
-  <input type="radio" id="absent" name={`${props.enrollment}`} value="Absent"/>
-  <label htmlFor="Absent" className="absent">Absent</label>
-  <input type="radio" id="holiday" name={`${props.enrollment}`} value="Holiday"/>
-  <label htmlFor="Holiday" className="holiday">Holiday</label>
+      <FormControl sx={{ maxWidth:'xs' }} primary>
+        <InputLabel id="demo-simple-select-error-label">Present</InputLabel>
+        <Select value={Present} label="Present" onChange={handleChange}>
+          <MenuItem value={10}>Present</MenuItem>
+          <MenuItem value={20}>Absent</MenuItem>
+        </Select>
+      </FormControl>
 </div>
     </td>
    
