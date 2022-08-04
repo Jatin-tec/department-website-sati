@@ -1,17 +1,23 @@
 import React from "react";
 import Avatar from '@mui/material/Avatar';
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormHelperText from "@mui/material/FormHelperText";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-var total=25;
+import Button from "@material-ui/core/Button";
+var ispresent=false;
+
+ 
 
 function Card(props) {
-  const [Present, setStatus] = React.useState("");
+  var [text,ChangeText]=React.useState("Present")
+  
+  if (ispresent){
+    text="Present";
+  }else{
+    text="Absent"
+  }
+  const [colour, ChangeColour] = React.useState("primary");
 
   const handleChange = (event) => {
-    setStatus(event.target.value);
+    ispresent=!ispresent;
+    ChangeColour("secondary");
   };
   return (
     
@@ -25,13 +31,9 @@ function Card(props) {
       
       <td className="Buttons-Attendence">
       <div className="attendence-status">
-      <FormControl sx={{ maxWidth:'xs' }} primary>
-        <InputLabel id="demo-simple-select-error-label">Present</InputLabel>
-        <Select value={Present} label="Present" onChange={handleChange}>
-          <MenuItem value={10}>Present</MenuItem>
-          <MenuItem value={20}>Absent</MenuItem>
-        </Select>
-      </FormControl>
+      <Button onClick={handleChange} variant="contained" color={colour}>
+        {text}
+      </Button>
 </div>
     </td>
    

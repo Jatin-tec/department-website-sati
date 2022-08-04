@@ -105,11 +105,7 @@ body {
   
 
 .attendence-status{
-    color: rgb(3, 3, 3);
-    position: relative;
-    top: -18px;
-    padding-left: 2rem;
-    padding-right: 2.9rem;
+    text-align: center;
 }
 .TotalAttendence{
   text-align: center;
@@ -144,36 +140,6 @@ td{
 
   padding: 1px;
   border-radius: 5px;
-}
-input[type='radio'] {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #747474;
-  border-radius: 50%;
-  outline: none;
-  opacity: 0.6;
-  /*transition: 0.3s;*/
-}
-
-input[type='radio']:hover:before {
-  box-shadow: 0px 0px 0px 12px rgba(80, 80, 200, 0.2);
-  border-radius: 50%;
-  opacity: 1;
-}
-
-input[type='radio']:before {
-  content: '';
-  display: block;
-  width: 60%;
-  height: 60%;
-  margin: 10%; /* Keeping margin only 10% */
-  padding: 10%; /* Increase the inner area for pushing the border out of the circle */
-  border-radius: 50%;
-  transition: 0.3s; /* Move your transition to here */
-}
-input[type='radio']{
-  position: relative;
-  top: 5px;
 }
 #Navigate{
   position: absolute;

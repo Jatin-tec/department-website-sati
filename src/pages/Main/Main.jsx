@@ -115,12 +115,10 @@ const Main = (props) => {
                     <div className="MainButtons">
                       <div className="LeftButton">
 
-                        <div class="upload">
-                          <label for="file-input">
-                            <UploadIcon fontSize="medium" />
-                          </label>
-                          <input id="file-input" type="file" onChange={handleChange} />
-                        </div>
+                      <Button color="primary" variant="contained" component="label">
+        Upload
+        <input hidden accept="image/*" multiple type="file" />
+      </Button>
                       </div>
                       <div className="BottomButtons">
                         <div className="AnnouncementButton">
