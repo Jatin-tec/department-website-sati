@@ -3,6 +3,7 @@ import { CREATE_CLASSS_ERROR, CREATE_CLASSS_SUCCESS, JOIN_CLASS, JOIN_CLASS_ERRO
 
 const initialiState = {
     currentClass: null,
+    classStudents: null,
 };
 
 const classReducer = (state = initialiState, action) => {
