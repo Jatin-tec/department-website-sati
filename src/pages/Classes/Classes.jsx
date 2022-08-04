@@ -38,9 +38,9 @@ const Classes = (props) => {
 
     return (
         <>
-            {classesArray.map(classData => {
+            {classesArray.map((classData, index) => {
                 return (
-                    <JoinedClasses classData={classData} />
+                    <JoinedClasses key={index} classData={classData} />
                 )
             })}
             <SpeedDialTooltipOpen />

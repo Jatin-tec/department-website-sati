@@ -4,15 +4,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
 import { useNavigate } from 'react-router-dom';
+import { connect, useSelector } from "react-redux";
+import { updateCurrentClass } from "../../store/actions/classActions";
 
-const JoinedClasses = ({ classData }) => {
+const JoinedClasses = ({ classData, currentClass }) => {
 
   const navigate = useNavigate();
 
   const redirect = () => {
-    navigate(`/detailed-class/${classData.classroom_code}`, {
+    currentClass(classData);
+    navigate(`/stream/${classData.classroom_code}`, {
       state: { ...classData }
-    })
+    });
   }
 
   return (
@@ -41,4 +44,12 @@ const JoinedClasses = ({ classData }) => {
   );
 };
 
-export default JoinedClasses;
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+      currentClass: (classData) => dispatch(updateCurrentClass(classData))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(JoinedClasses)
+

@@ -7,7 +7,7 @@ import localStateReducer from "./localStateReducer";
 const rootReducer = combineReducers({
     auth: authReducer,
     header: headerState,
-    joinClass: classReducer,
+    classReducer: classReducer,
     local: localStateReducer
 });
 
