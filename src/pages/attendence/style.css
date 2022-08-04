@@ -10,10 +10,7 @@ body {
   min-width: 18.75rem;
 }
 
-.AllCointainer{
-  
-  margin-right: 1% !important;
-}
+
 
 
 
@@ -33,6 +30,11 @@ body {
   background: #fff;
   width: 62.5rem;
 }
+.TR-Background{
+  background: #eff3f7;
+  border-bottom: 0.0625rem solid #e0e0e0;
+  border-right: 0.0625rem solid #e0e0e0;
+}
 
 .UserEnrollment {
   width: 12.0625rem;
@@ -41,9 +43,7 @@ body {
   vertical-align: top;
   box-sizing: border-box;
   height: 100%;
-  border-bottom: 0.0625rem solid #e0e0e0;
-  border-right: 0.0625rem solid #e0e0e0;
-  background: #f8f9fa;
+  
 }
 
 .UserName{
@@ -52,10 +52,9 @@ body {
   text-align: left;
   vertical-align: top;
   box-sizing: border-box;
-  border-bottom: 0.0625rem solid #e0e0e0;
-  border-right: 0.0625rem solid #e0e0e0;
+ 
   height: 100%;
-  background: #f8f9fa;
+ 
 }
 
 .UserEmail {
@@ -64,21 +63,18 @@ body {
   text-align: left;
   vertical-align: top;
   box-sizing: border-box;
-  border-bottom: 0.0625rem solid #e0e0e0;
-  border-right: 0.0625rem solid #e0e0e0;
   height: 100%;
-  background: #f8f9fa;
+  
 }
 .Today {
   width: 17.0625rem;
   padding: 0.75rem 1rem;
-  text-align: left;
+  text-align: center;
   vertical-align: top;
   box-sizing: border-box;
-  border-bottom: 0.0625rem solid #e0e0e0;
-  border-right: 0.0625rem solid #e0e0e0;
+
   height: 100%;
-  background: #f8f9fa;
+ 
 }
 .AttendenceData {
   width: 10.0625rem;
@@ -86,8 +82,6 @@ body {
   text-align: center;
   vertical-align: top;
   box-sizing: border-box;
-  border-bottom: 0.0625rem solid #e0e0e0;
-  border-right: 0.0625rem solid #e0e0e0;
   height: 100%;
   background: #f8f9fa;
 }
@@ -96,6 +90,7 @@ body {
   text-align: left;
   margin-left: 15px;
   margin-top: 10px;
+  
 }
 #AttendenceUsername{
   display: flex;
@@ -104,23 +99,17 @@ body {
   
   
 }
-td{
-  border-bottom: 0.0625rem solid #e0e0e0;
-  border-right: 0.0625rem solid #e0e0e0;
-  text-align: left;
-}
 
 
-  th {
-    transform: translate(0px, 0px);
-    display: table-cell;
-    vertical-align: inherit;
-    font-weight: 500;
-    text-align: -internal-center;
-}
+
+  
 
 .attendence-status{
     color: rgb(3, 3, 3);
+    position: relative;
+    top: -18px;
+    padding-left: 2rem;
+    padding-right: 2.9rem;
 }
 .TotalAttendence{
   text-align: center;
@@ -299,5 +288,8 @@ input[type='radio']{
 .Buttons-Attendence{
   width: 90px;
   display: inline;
+}
+.Today{
+  display: none;
 }
 }

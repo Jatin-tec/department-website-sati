@@ -24,9 +24,7 @@ function createCard(contacts) {
 }
 
 function Attendence(props) {
-
   const params = useParams();
-
   useEffect(() => {
     (async () => {
       const pages = [
@@ -50,7 +48,7 @@ function Attendence(props) {
           title: 'Marks',
           path: `/evalute/${params.code}`
         }
-      ];      
+      ];
       props.updateHeader(pages)
     })()
   })
@@ -61,15 +59,16 @@ function Attendence(props) {
       <form>
         <h2 className="heading">Attendence of the Students of AIADS</h2>
         <table className="Attendencetable">
-          <tr>
+          <tr className="TR-Background">
             <th>
               <div className="UserName">Name</div></th>
             <th className="Mobile"><div className="UserEnrollment">Enrollment number</div></th>
             <th className="DisplayNone"><div className="UserEmail">Email</div></th>
             <th className="Mobile-Display"><div className="Today">{today}</div></th>
-            <th className="DisplayNone"><div className="AttendenceData">Total Attendence</div></th>
+
           </tr>
           {contacts.map(createCard)}
+
         </table>
 
 
