@@ -111,13 +111,7 @@ td{
 }
 
 
-  th {
-    transform: translate(0px, 0px);
-    display: table-cell;
-    vertical-align: inherit;
-    font-weight: 500;
-    text-align: -internal-center;
-}
+  
 
 .attendence-status{
     color: rgb(3, 3, 3);
@@ -299,5 +293,12 @@ input[type='radio']{
 .Buttons-Attendence{
   width: 90px;
   display: inline;
+}
+.Today{
+  display: none;
+}
+th{
+  border-bottom: 2px;
+  border: #1e79eb;
 }
 }

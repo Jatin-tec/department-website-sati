@@ -33,7 +33,7 @@ return(
     <th className="Mobile"><div className="UserEnrollment">Enrollment number</div></th>
     <th className="DisplayNone"><div className="UserEmail">Email</div></th>
     <th className="Mobile-Display"><div className="Today">{today}</div></th>
-    <th className="DisplayNone"><div className="AttendenceData">Total Attendence</div></th>
+    
   </tr>
   {contacts.map(createCard)}
  
