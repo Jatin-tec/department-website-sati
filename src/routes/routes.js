@@ -8,6 +8,7 @@ import Classes from "../pages/Classes/Classes"
 import Main from "../pages/Main/Main"
 import People from "../pages/Peoples/Peoples"
 import DetailedPeople from "../pages/DetailedPeople/DetailedPeople"
+import ClassWork from "../pages/ClassWork/ClassWork"
 
 
 const authProtectedRoutes = [
@@ -19,6 +20,8 @@ const authProtectedRoutes = [
     { path:'/viva', component:Viva },
     { path:'/stream/:code', component: Main},
     { path:'/detailed-student', component: DetailedPeople},
+    { path:'/detailed-student/:code', component: DetailedPeople},
+    { path:'/classwork/:code', component: ClassWork}
 
 ]
 
