@@ -158,50 +158,52 @@ const ClassWork = () => {
     <Divider sx={{ my: 0.5 }} />
 
                 <table className="TeacherTable">
+                    
+                {/* This tbody is component */}
                     <tbody>
                         <tr className="Teacher-tr">
                             <td>
-                                <div className="Teacher-tr-div">
-                                    <span className="TeacherAvatar"><AssignmentOutlinedIcon/></span>
-                                    <span className="TeachersName">Assingment 1</span>
+                                <div className="Assignment-tr-div">
+                                    <span className="Assignment-Avatar"><AssignmentOutlinedIcon/></span>
+                                    <span className="Assignment-Name">Assingment 1</span>
                                 </div>
                             </td>
                         </tr>
                     </tbody>
-                </table>                
-                <table className="TeacherTable">
+                  {/* This tbody is component */}
+
                     <tbody>
                         <tr className="Teacher-tr">
                             <td>
-                                <div className="Teacher-tr-div">
-                                    <span className="TeacherAvatar"><AssignmentOutlinedIcon/></span>
-                                    <span className="TeachersName">Assingment 2</span>
+                                <div className="Assignment-tr-div">
+                                    <span className="Assignment-Avatar"><AssignmentOutlinedIcon/></span>
+                                    <span className="Assignment-Name">Assingment 2</span>
                                 </div>
                             </td>
                         </tr>
                     </tbody>
-                </table><table className="TeacherTable">
                     <tbody>
                         <tr className="Teacher-tr">
                             <td>
-                                <div className="Teacher-tr-div">
-                                    <span className="TeacherAvatar"><AssignmentOutlinedIcon/></span>
-                                    <span className="TeachersName">Assingment 3</span>
+                                <div className="Assignment-tr-div">
+                                    <span className="Assignment-Avatar"><AssignmentOutlinedIcon/></span>
+                                    <span className="Assignment-Name">Assingment 3</span>
                                 </div>
                             </td>
                         </tr>
                     </tbody>
-                </table><table className="TeacherTable">
                     <tbody>
                         <tr className="Teacher-tr">
                             <td>
-                                <div className="Teacher-tr-div">
-                                    <span className="TeacherAvatar"><AssignmentOutlinedIcon/></span>
-                                    <span className="TeachersName">Assingment 4</span>
+                                <div className="Assignment-tr-div">
+                                    <span className="Assignment-Avatar"><AssignmentOutlinedIcon/></span>
+                                    <span className="Assignment-Name">Assingment 4</span>
                                 </div>
                             </td>
                         </tr>
                     </tbody>
+                
+                    
                 </table>
                 </Stack>
                 </Box>

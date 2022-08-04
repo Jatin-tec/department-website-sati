@@ -74,11 +74,10 @@ align-items: center;
     display: flex;
 }
 
-.Teacher-tr-div{
+.Assignment-tr-div{
     
-        align-items: center;
-        display: flex;
-        flex-direction: row;
+       
+        
     }
 .TeacherAvatar{
     flex: 0 0 2.5rem;
@@ -88,18 +87,20 @@ align-items: center;
 }
 
 
-.TeachersName {
+.Assignment-Name {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     margin-left: 0.5rem;
-    max-width: 30rem;
     letter-spacing: .01785714em;
     font-family: "Google Sans",Roboto,Arial,sans-serif;
     font-size: 0.875rem;
     font-weight: 500;
     line-height: 1.25rem;
     color: #3c4043;
+    position: relative;
+    left: 1px;
+    bottom: 7px;
 }
 tbody:hover{
     background: #d5eafd;
