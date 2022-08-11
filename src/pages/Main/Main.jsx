@@ -35,7 +35,7 @@ const Main = (props) => {
         },
         {
           title: 'Classwork',
-          path: `/classes`
+          path: `/classwork/:code`
         },
         {
           title: 'People',
