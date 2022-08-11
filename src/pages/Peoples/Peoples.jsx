@@ -5,39 +5,17 @@ import Avatar from '@mui/material/Avatar';
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import { updateHeaderTitle } from "../../store/actions/headerActionState";
 
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
 
 const People = (props) => {
 
-    const params = useParams();
     useEffect(() => {
-        const pages = [
-            {
-              title: 'Stream',
-              path: `/stream/${params.code}`
-            },
-            {
-              title: 'Classwork',
-              path: `/classes`
-            },
-            {
-              title: 'People',
-              path: `/peoples/${params.code}`
-            },
-            {
-              title: 'Attendence',
-              path: `/attendence/${params.code}`
-            },
-            {
-              title: 'Marks',
-              path: `/evalute/${params.code}`
-            }
-          ];
-        (async () => {
-            props.updateHeader(pages)
-        })()
-    })
+    }, [])
+
+    const firstName = useSelector(state => state.auth.profile.firstName)
+    const lastName = useSelector(state => state.auth.profile.lastName)
+    const students = useSelector(state => state.classReducer.currentClass.students)
 
     return (
         <main className="Main-Cointainer">
@@ -52,7 +30,7 @@ const People = (props) => {
                             <td>
                                 <div className="Teacher-tr-div">
                                     <span className="TeacherAvatar"><Avatar /></span>
-                                    <span className="TeachersName">Himanshu sir</span>
+                                    <span className="TeachersName">{`${firstName} ${lastName}`}</span>
                                 </div>
                             </td>
                         </tr>
@@ -65,37 +43,20 @@ const People = (props) => {
                     <div className="Three-Dots"><span><PersonAddAltIcon color="action" /></span></div>
                 </div>
                 <table className="TeacherTable">
-                    <tbody>
-                        <tr className="Teacher-tr">
-                            <td>
-                                <div className="Teacher-tr-div">
-                                    <span className="TeacherAvatar"><Avatar /></span>
-                                    <span className="TeachersName">Jatin Kshatriya</span>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr className="Teacher-tr">
-                            <td>
-                                <div className="Teacher-tr-div">
-                                    <span className="TeacherAvatar"><Avatar /></span>
-                                    <span className="TeachersName">Prashant Patel</span>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr className="Teacher-tr">
-                            <td>
-                                <div className="Teacher-tr-div">
-                                    <span className="TeacherAvatar"><Avatar /></span>
-                                    <span className="TeachersName">Hersel Betichod  </span>
-                                    <div className="DeleteIcon"></div>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
+                    {students &&
+                        students.map(student => (
+                            <tbody key={student.user.email}>
+                                <tr className="Teacher-tr">
+                                    <td>
+                                        <div className="Teacher-tr-div">
+                                            <span className="TeacherAvatar"><Avatar /></span>
+                                            <span className="TeachersName">{student.user.email}</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        ))
+                    }
                 </table>
             </div>
         </main>

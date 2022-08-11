@@ -21,7 +21,7 @@ const Classes = (props) => {
 
     useEffect(() => {
         (async () => {
-            const response = await axios.get(`http://127.0.0.1:8000/department/classroom/${userEmail}`,
+            const response = await axios.get(`http://127.0.0.1:8000/department/classroom/list/${userEmail}`,
                 {
                     headers: {
                         Authorization: sessionStorage.getItem('access')
@@ -31,6 +31,7 @@ const Classes = (props) => {
                     }
                 }
             )
+            console.log(response.data)
             setClasses(response.data);
             props.updateHeader(pages);    
         })()

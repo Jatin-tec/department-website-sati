@@ -1,44 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Avatar from '@mui/material/Avatar';
 import Button from "@material-ui/core/Button";
-var ispresent=false;
-
- 
 
 function Card(props) {
-  var [text,ChangeText]=React.useState("Present")
-  
-  if (ispresent){
-    text="Present";
-  }else{
-    text="Absent"
-  }
-  const [colour, ChangeColour] = React.useState("primary");
+  const [text, setText] = useState("Mark Present")
+  const [colour, changeColour] = useState("primary");
+  const [isPresent, toggelPresent] = useState(false);
+
+  useEffect(() => {
+    if (isPresent) {
+      setText("Mark Absent");
+      changeColour("secondary");
+    } else {
+      setText("Mark Present");
+      changeColour("primary");
+    }
+  }, [isPresent, props])
 
   const handleChange = (event) => {
-    ispresent=!ispresent;
-    ChangeColour("secondary");
+    toggelPresent(!isPresent);
   };
+
   return (
-    
-      
-      <tr>
+    <tr>
       <td id="AttendenceUsername">
-      <div className="Avatar"><Avatar/></div>
-      <div className="UsernameData">{props.name}</div></td>
-      <td className="Mobile"> <div className="enrollment">{props.enrollment}</div></td>
-      <td className="DisplayNone"><div className="email">{props.email}</div></td>
-      
+        <div className="Avatar"><Avatar /></div>
+        <div className="UsernameData">{props.user.first_name}</div></td>
+      <td className="Mobile"> <div className="enrollment">{props.enrollment_no}</div></td>
+      <td className="DisplayNone"><div className="email">{props.user.email}</div></td>
+
       <td className="Buttons-Attendence">
-      <div className="attendence-status">
-      <Button onClick={handleChange} variant="contained" color={colour}>
-        {text}
-      </Button>
-</div>
-    </td>
-   
+        <div className="attendence-status">
+          <Button onClick={handleChange} variant="contained" color={colour}>
+            {text}
+          </Button>
+        </div>
+      </td>
     </tr>
-    
   );
 }
 

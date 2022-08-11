@@ -12,8 +12,17 @@ import { updateHeaderTitle } from "../../store/actions/headerActionState";
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import { pages } from "./pages";
 
+<<<<<<< HEAD
 
+=======
+function CopyToClipboard() {
+  var copyText = "Hello";
+  navigator.clipboard.writeText(copyText);
+  alert("Copied the text:" + copyText);
+}
+>>>>>>> 4007504568402986b870a764ad6965553a192c9c
 
 const Main = (props) => {
 
@@ -24,31 +33,10 @@ const Main = (props) => {
 
   useEffect(() => {
     (async () => {
-      const pages = [
-        {
-          title: 'Stream',
-          path: `/stream/${params.code}`
-        },
-        {
-          title: 'Classwork',
-          path: `/classwork/:code`
-        },
-        {
-          title: 'People',
-          path: `/peoples/${params.code}`
-        },
-        {
-          title: 'Attendence',
-          path: `/attendence/${params.code}`
-        },
-        {
-          title: 'Marks',
-          path: `/evalute/${params.code}`
-        }
-      ];      
-      props.updateHeader(pages)
+      const new_pages = pages.map(page => { return { ...page, path: page.path + params.code } })
+      props.updateHeader(new_pages)
     })()
-  })
+  }, [])
 
   const handleChange = (e) => {
     if (e.target.files[0]) {
@@ -77,7 +65,7 @@ const Main = (props) => {
           <div className="LeftCointainer">
             <div >
               <div className="First">
-                <div className="FirstContent"><span class="ClassCode">Class code</span></div>
+                <div className="FirstContent"><span className="ClassCode">Class code</span></div>
                 <div className="FirstContent">
                   <div className="ShowClassCode">
                     <html-Blob>
@@ -114,11 +102,12 @@ const Main = (props) => {
                     />
                     <div className="MainButtons">
                       <div className="LeftButton">
-
-                      <Button color="primary" variant="contained" component="label">
-        Upload
-        <input hidden accept="image/*" multiple type="file" />
-      </Button>
+                        <div className="upload">
+                          <label htmlFor="file-input">
+                            <UploadIcon fontSize="medium" />
+                          </label>
+                          <input id="file-input" type="file" onChange={handleChange} />
+                        </div>
                       </div>
                       <div className="BottomButtons">
                         <div className="AnnouncementButton">
@@ -164,8 +153,8 @@ const Main = (props) => {
                 <div className="DetailedContent">
                   <div className="ContentInAnnouncement">
                     <h2></h2>
-                    <div class="UsernameInAnnouncement">
-                      <span class="UsernameInAnnouncementcontent">Eyepatch#0701 MereSawaloo ka jawaab do</span>
+                    <div className="UsernameInAnnouncement">
+                      <span className="UsernameInAnnouncementcontent">Eyepatch#0701 MereSawaloo ka jawaab do</span>
                     </div>
                   </div>
 
@@ -186,8 +175,8 @@ const Main = (props) => {
                 <div className="DetailedContent">
                   <div className="ContentInAnnouncement">
                     <h2></h2>
-                    <div class="UsernameInAnnouncement">
-                      <span class="UsernameInAnnouncementcontent">Eyepatch#0701 posted a new assignment: sss</span>
+                    <div className="UsernameInAnnouncement">
+                      <span className="UsernameInAnnouncementcontent">Eyepatch#0701 posted a new assignment: sss</span>
                     </div>
                   </div>
 

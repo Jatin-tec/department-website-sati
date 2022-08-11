@@ -62,8 +62,8 @@ const StyledMenu = styled((props) => (
 }));
 
 const ClassWork = () => {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [dialog, setDialog] = React.useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [dialog, setDialog] = React.useState(false);
 
 
   const open = Boolean(anchorEl);
@@ -71,7 +71,7 @@ const ClassWork = () => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-    setAnchorEl(null);  
+    setAnchorEl(null);
   };
 
   const [topic, setTopic] = useState('');
@@ -80,138 +80,136 @@ const ClassWork = () => {
     setTopic(event.target.value);
   };
 
-    return (
-        <Grid container>
-            <Grid container xs={3.5}>
-                <Box sx={{pt: 15, pl: 15, display: { xs: 'none',sm:'none', md: 'block', lg: 'block' }}}>
-                <Stack spacing={2} direction="column">
-                    <Button variant="text">All Topics</Button>
-                    <Button variant="text">1</Button>
-                    <Button variant="text">2</Button>
-                </Stack>
+  return (
+    <Grid container>
+      <Grid container xs={3.5}>
+        <Box sx={{ pt: 15, pl: 15, display: { xs: 'none', sm: 'none', md: 'block', lg: 'block' } }}>
+          <Stack spacing={2} direction="column">
+            <Button variant="text">All Topics</Button>
+            <Button variant="text">1</Button>
+            <Button variant="text">2</Button>
+          </Stack>
 
+        </Box>
+      </Grid>
+      <Grid container xs={6}>
+        <Grid item xs={12}>
+          <Box sx={{ pt: 5 }}>
+            <Stack spacing={2} direction="column">
+              <div>
+                <Button
+                  id="demo-customized-button"
+                  aria-controls={open ? 'demo-customized-menu' : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? 'true' : undefined}
+                  variant="contained"
+                  disableElevation
+                  onClick={handleClick}
+                  endIcon={<KeyboardArrowDownIcon />}
+                >
+                  Create
+                </Button>
+                <Box sx={{ minWidth: 120, pt: 2, display: { xs: 'block', sm: 'block', md: 'none', lg: 'none' } }}>
+                  <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label">Topics</InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      value={topic}
+                      label="Topics"
+                      onChange={handleChange}
+                    >
+                      <MenuItem value={10}>All Topics</MenuItem>
+                      <MenuItem value={10}>Chapter 1</MenuItem>
+                      <MenuItem value={20}>Chapter 2</MenuItem>
+                      <MenuItem value={30}>chapter 3</MenuItem>
+                    </Select>
+                  </FormControl>
                 </Box>
-            </Grid>
-            <Grid container xs={6}>
-                <Grid item xs={12}>
-                <Box sx={{pt: 5}}>
-                <Stack spacing={2} direction="column">
-                <div>
-      <Button
-        id="demo-customized-button"
-        aria-controls={open ? 'demo-customized-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        variant="contained"
-        disableElevation
-        onClick={handleClick}
-        endIcon={<KeyboardArrowDownIcon />}
-      >
-        Create
-      </Button>
-      <Box sx={{ minWidth: 120, pt: 2, display: { xs: 'block',sm:'block', md: 'none', lg: 'none' } }}>
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Topics</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={topic}
-          label="Topics"
-          onChange={handleChange}
-        >
-          <MenuItem value={10}>All Topics</MenuItem>
-          <MenuItem value={10}>Chapter 1</MenuItem>
-          <MenuItem value={20}>Chapter 2</MenuItem>
-          <MenuItem value={30}>chapter 3</MenuItem>
-        </Select>
-      </FormControl>
-    </Box>
-      <StyledMenu
-        id="demo-customized-menu"
-        MenuListProps={{
-          'aria-labelledby': 'demo-customized-button',
-        }}
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-      >
-        <ClassworkDialog/>
-        
-        <MenuItem onClick={handleClose} disableRipple>
-          <AssignmentRoundedIcon />
-          Quiz Assignment
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          <LiveHelpRoundedIcon />
-          Question
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          <LibraryBooksRoundedIcon />
-          Material
-        </MenuItem>
-        <Divider sx={{ my: 0.5 }} />
-        <MenuItem onClick={handleClose} disableRipple>
-          <LocalPostOfficeRoundedIcon />
-          Reuse-Post
-        </MenuItem>
-      </StyledMenu>
-    </div>
-    <Divider sx={{ my: 0.5 }} />
+                <StyledMenu
+                  id="demo-customized-menu"
+                  MenuListProps={{
+                    'aria-labelledby': 'demo-customized-button',
+                  }}
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                >
+                  <ClassworkDialog />
 
-                <table className="TeacherTable">
-                    
+                  <MenuItem onClick={handleClose} disableRipple>
+                    <AssignmentRoundedIcon />
+                    Quiz Assignment
+                  </MenuItem>
+                  <MenuItem onClick={handleClose} disableRipple>
+                    <LiveHelpRoundedIcon />
+                    Question
+                  </MenuItem>
+                  <MenuItem onClick={handleClose} disableRipple>
+                    <LibraryBooksRoundedIcon />
+                    Material
+                  </MenuItem>
+                  <Divider sx={{ my: 0.5 }} />
+                  <MenuItem onClick={handleClose} disableRipple>
+                    <LocalPostOfficeRoundedIcon />
+                    Reuse-Post
+                  </MenuItem>
+                </StyledMenu>
+              </div>
+              <Divider sx={{ my: 0.5 }} />
+
+              <table className="TeacherTable">
+
                 {/* This tbody is component */}
-                    <tbody>
-                        <tr className="Teacher-tr">
-                            <td>
-                                <div className="Assignment-tr-div">
-                                    <span className="Assignment-Avatar"><AssignmentOutlinedIcon/></span>
-                                    <span className="Assignment-Name">Assingment 1</span>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                  {/* This tbody is component */}
+                <tbody>
+                  <tr className="Teacher-tr">
+                    <td>
+                      <div className="Assignment-tr-div">
+                        <span className="Assignment-Avatar"><AssignmentOutlinedIcon /></span>
+                        <span className="Assignment-Name">Assingment 1</span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+                {/* This tbody is component */}
 
-                    <tbody>
-                        <tr className="Teacher-tr">
-                            <td>
-                                <div className="Assignment-tr-div">
-                                    <span className="Assignment-Avatar"><AssignmentOutlinedIcon/></span>
-                                    <span className="Assignment-Name">Assingment 2</span>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr className="Teacher-tr">
-                            <td>
-                                <div className="Assignment-tr-div">
-                                    <span className="Assignment-Avatar"><AssignmentOutlinedIcon/></span>
-                                    <span className="Assignment-Name">Assingment 3</span>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr className="Teacher-tr">
-                            <td>
-                                <div className="Assignment-tr-div">
-                                    <span className="Assignment-Avatar"><AssignmentOutlinedIcon/></span>
-                                    <span className="Assignment-Name">Assingment 4</span>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                
-                    
-                </table>
-                </Stack>
-                </Box>
-                    </Grid>
-            </Grid>
+                <tbody>
+                  <tr className="Teacher-tr">
+                    <td>
+                      <div className="Assignment-tr-div">
+                        <span className="Assignment-Avatar"><AssignmentOutlinedIcon /></span>
+                        <span className="Assignment-Name">Assingment 2</span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr className="Teacher-tr">
+                    <td>
+                      <div className="Assignment-tr-div">
+                        <span className="Assignment-Avatar"><AssignmentOutlinedIcon /></span>
+                        <span className="Assignment-Name">Assingment 3</span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr className="Teacher-tr">
+                    <td>
+                      <div className="Assignment-tr-div">
+                        <span className="Assignment-Avatar"><AssignmentOutlinedIcon /></span>
+                        <span className="Assignment-Name">Assingment 4</span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </Stack>
+          </Box>
         </Grid>
+      </Grid>
+    </Grid>
 
-    );
+  );
 }
 export default ClassWork;
