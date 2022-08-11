@@ -18,7 +18,7 @@ import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-
+import { ClassworkDialog } from '../../components/ClassworkDialog/ClassworkDialog';
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -63,6 +63,9 @@ const StyledMenu = styled((props) => (
 
 const ClassWork = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [dialog, setDialog] = React.useState(false);
+
+
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -132,10 +135,8 @@ const ClassWork = () => {
                   open={open}
                   onClose={handleClose}
                 >
-                  <MenuItem onClick={handleClose} disableRipple>
-                    <AssignmentRoundedIcon />
-                    Assignment
-                  </MenuItem>
+                  <ClassworkDialog />
+
                   <MenuItem onClick={handleClose} disableRipple>
                     <AssignmentRoundedIcon />
                     Quiz Assignment

@@ -14,7 +14,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import { pages } from "./pages";
 
-function CopyToClipboard() {  
+function CopyToClipboard() {
   var copyText = "Hello";
   navigator.clipboard.writeText(copyText);
   alert("Copied the text:" + copyText);
@@ -29,7 +29,7 @@ const Main = (props) => {
 
   useEffect(() => {
     (async () => {
-      const new_pages = pages.map(page => {return {...page, path: page.path+params.code} })
+      const new_pages = pages.map(page => { return { ...page, path: page.path + params.code } })
       props.updateHeader(new_pages)
     })()
   }, [])
