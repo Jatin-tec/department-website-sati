@@ -153,7 +153,7 @@ const ClassHeader = (props) => {
                         </Typography>
                         <div className='FuckingHeader'><Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                             {pages.map((page, index) => (
-                                <div className='NavBar-Button'><Link key={index} to={page.path} style={{ textDecoration: 'none' }}>
+                                <div key={index} className='NavBar-Button'><Link to={page.path} style={{ textDecoration: 'none' }}>
                                     <Button
                                         key={index}
                                         onClick={() => { handleCloseNavMenu() }}

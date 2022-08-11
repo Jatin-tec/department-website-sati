@@ -77,7 +77,7 @@ const Main = (props) => {
           <div className="LeftCointainer">
             <div >
               <div className="First">
-                <div className="FirstContent"><span class="ClassCode">Class code</span></div>
+                <div className="FirstContent"><span className="ClassCode">Class code</span></div>
                 <div className="FirstContent">
                   <div className="ShowClassCode">
                     <html-Blob>
@@ -115,7 +115,7 @@ const Main = (props) => {
                     <div className="MainButtons">
                       <div className="LeftButton">
 
-                        <div class="upload">
+                        <div className="upload">
                           <label for="file-input">
                             <UploadIcon fontSize="medium" />
                           </label>
@@ -166,8 +166,8 @@ const Main = (props) => {
                 <div className="DetailedContent">
                   <div className="ContentInAnnouncement">
                     <h2></h2>
-                    <div class="UsernameInAnnouncement">
-                      <span class="UsernameInAnnouncementcontent">Eyepatch#0701 MereSawaloo ka jawaab do</span>
+                    <div className="UsernameInAnnouncement">
+                      <span className="UsernameInAnnouncementcontent">Eyepatch#0701 MereSawaloo ka jawaab do</span>
                     </div>
                   </div>
 
@@ -187,8 +187,8 @@ const Main = (props) => {
                 <div className="DetailedContent">
                   <div className="ContentInAnnouncement">
                     <h2></h2>
-                    <div class="UsernameInAnnouncement">
-                      <span class="UsernameInAnnouncementcontent">Eyepatch#0701 posted a new assignment: sss</span>
+                    <div className="UsernameInAnnouncement">
+                      <span className="UsernameInAnnouncementcontent">Eyepatch#0701 posted a new assignment: sss</span>
                     </div>
                   </div>
 
