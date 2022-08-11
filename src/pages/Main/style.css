@@ -287,12 +287,21 @@ color: #fff;
     width: 2.5rem;
     border-radius: 50%;
 }
-
+.SpaceBetween{
+  flex: 1 0 1rem;
+}
 .AnnounceAvatar {
     background-color: #3c4043;
     align-items: center;
     display: flex;
     justify-content: center;
+    color: #fff;
+    cursor: default;
+    flex-shrink: 0;
+    height: 2.5rem;
+    line-height: 0;
+    margin: 0 1rem 0 1.5rem;
+    width: 2.5rem;
 }
 .DetailedContent{
 overflow: hidden;
@@ -308,10 +317,7 @@ overflow: hidden;
   color: #3c4043;
   text-transform: none;
 }
-.DotIcon{
-  justify-items: right;
-  margin-left: 50%;
-}
+
 .UsernameInAnnouncement {
   align-items: center;
   display: flex;

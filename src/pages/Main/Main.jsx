@@ -13,11 +13,7 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 
-function CopyToClipboard() {  
-  var copyText = "Hello";
-  navigator.clipboard.writeText(copyText);
-  alert("Copied the text:" + copyText);
-}
+
 
 const Main = (props) => {
 
@@ -60,7 +56,11 @@ const Main = (props) => {
   };
 
   const classData = useSelector(state => state.classReducer.currentClass);
-
+  function CopyToClipboard() {  
+    var copyText = classData.classroom_code;
+    navigator.clipboard.writeText(copyText);
+    
+  }
   return (
     <div className="MainCointainer">
       <div className="TopCointainerWrapper">
@@ -84,7 +84,7 @@ const Main = (props) => {
                       <span style={{ whiteSpace: "pre-wrap" }}>{classData.classroom_code}</span>
                     </html-Blob>
                   </div>
-                  <div className="CopyIcon"><ContentCopyIcon /></div>
+                  <div className="CopyIcon" onClick={CopyToClipboard}><ContentCopyIcon /></div>
                 </div>
               </div>
             </div>
@@ -170,6 +170,7 @@ const Main = (props) => {
                   </div>
 
                 </div>
+                <div className="SpaceBetween"></div>
                 <div className="DotIcon"><MoreVertIcon /></div>
               </div>
             </div>
@@ -191,6 +192,7 @@ const Main = (props) => {
                   </div>
 
                 </div>
+                <div className="SpaceBetween"></div>
                 <div className="DotIcon"><MoreVertIcon /></div>
               </div>
             </div>
