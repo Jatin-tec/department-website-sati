@@ -12,6 +12,7 @@ import { updateHeaderTitle } from "../../store/actions/headerActionState";
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import { pages } from "./pages";
 
 function CopyToClipboard() {  
   var copyText = "Hello";
@@ -28,31 +29,10 @@ const Main = (props) => {
 
   useEffect(() => {
     (async () => {
-      const pages = [
-        {
-          title: 'Stream',
-          path: `/stream/${params.code}`
-        },
-        {
-          title: 'Classwork',
-          path: `/classes`
-        },
-        {
-          title: 'People',
-          path: `/peoples/${params.code}`
-        },
-        {
-          title: 'Attendence',
-          path: `/attendence/${params.code}`
-        },
-        {
-          title: 'Marks',
-          path: `/evalute/${params.code}`
-        }
-      ];      
-      props.updateHeader(pages)
+      const new_pages = pages.map(page => {return {...page, path: page.path+params.code} })
+      props.updateHeader(new_pages)
     })()
-  })
+  }, [])
 
   const handleChange = (e) => {
     if (e.target.files[0]) {
@@ -114,9 +94,8 @@ const Main = (props) => {
                     />
                     <div className="MainButtons">
                       <div className="LeftButton">
-
                         <div className="upload">
-                          <label for="file-input">
+                          <label htmlFor="file-input">
                             <UploadIcon fontSize="medium" />
                           </label>
                           <input id="file-input" type="file" onChange={handleChange} />

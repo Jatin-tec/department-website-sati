@@ -1,57 +1,28 @@
 import React, { useEffect } from "react";
 import './style.css';
-import contacts from "./contacts";
-import Card from "./Card";
-import SpeedDialTooltipOpen from "../../components/Dropdown/Dropdown"
-import Container from '@mui/material/Container';
-import { useParams } from "react-router-dom";
-import { connect } from "react-redux";
+
 import { updateHeaderTitle } from "../../store/actions/headerActionState";
+import SpeedDialTooltipOpen from "../../components/Dropdown/Dropdown";
+import { connect, useSelector } from "react-redux";
+import Card from "./Card";
 
 
 const date = new Date();
 var today = "Take attendence of " + date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
 
-function createCard(contacts) {
+function createCard(student) {
   return <Card
-    key={contacts.enrollment}
-    name={contacts.name}
-    enrollment={contacts.enrollment}
-    email={contacts.email}
-    attendence={contacts.attendence}
-    id={contacts.id}
+    key={student.user.email}
+    {...student}
   />
 }
 
 function Attendence(props) {
-  const params = useParams();
+
   useEffect(() => {
-    (async () => {
-      const pages = [
-        {
-          title: 'Stream',
-          path: `/stream/${params.code}`
-        },
-        {
-          title: 'Classwork',
-          path: `/classes`
-        },
-        {
-          title: 'People',
-          path: `/peoples/${params.code}`
-        },
-        {
-          title: 'Attendence',
-          path: `/attendence/${params.code}`
-        },
-        {
-          title: 'Marks',
-          path: `/evalute/${params.code}`
-        }
-      ];
-      props.updateHeader(pages)
-    })()
-  })
+  }, [])
+
+  const students = useSelector(state => state.classReducer.currentClass.students);
 
   return (
 
@@ -67,15 +38,8 @@ function Attendence(props) {
             <th className="Mobile-Display"><div className="Today">{today}</div></th>
 
           </tr>
-          {contacts.map(createCard)}
-
+          {students && students.map(createCard)}
         </table>
-
-
-        <div className="AttendenceSubmitButton">
-          <button id="Attendence-submit" type="submit">Submit</button>
-        </div>
-
       </form>
 
       <SpeedDialTooltipOpen />

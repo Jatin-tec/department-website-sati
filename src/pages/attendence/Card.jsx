@@ -1,42 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Avatar from '@mui/material/Avatar';
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormHelperText from "@mui/material/FormHelperText";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-var total=25;
+import Button from "@material-ui/core/Button";
 
 function Card(props) {
-  const [Present, setStatus] = React.useState("");
+  const [text, setText] = useState("Mark Present")
+  const [colour, changeColour] = useState("primary");
+  const [isPresent, toggelPresent] = useState(false);
+
+  useEffect(() => {
+    if (isPresent) {
+      setText("Mark Absent");
+      changeColour("secondary");
+    } else {
+      setText("Mark Present");
+      changeColour("primary");
+    }
+  }, [isPresent, props])
 
   const handleChange = (event) => {
-    setStatus(event.target.value);
+    toggelPresent(!isPresent);
   };
+
   return (
-    
-      
-      <tr>
+    <tr>
       <td id="AttendenceUsername">
-      <div className="Avatar"><Avatar/></div>
-      <div className="UsernameData">{props.name}</div></td>
-      <td className="Mobile"> <div className="enrollment">{props.enrollment}</div></td>
-      <td className="DisplayNone"><div className="email">{props.email}</div></td>
-      
+        <div className="Avatar"><Avatar /></div>
+        <div className="UsernameData">{props.user.first_name}</div></td>
+      <td className="Mobile"> <div className="enrollment">{props.enrollment_no}</div></td>
+      <td className="DisplayNone"><div className="email">{props.user.email}</div></td>
+
       <td className="Buttons-Attendence">
-      <div className="attendence-status">
-      <FormControl sx={{ maxWidth:'xs' }} primary>
-        <InputLabel id="demo-simple-select-error-label">Present</InputLabel>
-        <Select value={Present} label="Present" onChange={handleChange}>
-          <MenuItem value={10}>Present</MenuItem>
-          <MenuItem value={20}>Absent</MenuItem>
-        </Select>
-      </FormControl>
-</div>
-    </td>
-   
+        <div className="attendence-status">
+          <Button onClick={handleChange} variant="contained" color={colour}>
+            {text}
+          </Button>
+        </div>
+      </td>
     </tr>
-    
   );
 }
 
