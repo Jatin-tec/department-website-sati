@@ -43,7 +43,7 @@ const JoinClass = (props) => {
               onClick={props.toggleJoinClassDialog}
             >
               <Close className="joinClass__svg" />
-              <div className="joinClass__topHead">Join Class</div>
+              <div className="joinClass__topHead">Join Class</div>  
             </div>
             <Button
               className="joinClass__btn"

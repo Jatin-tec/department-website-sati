@@ -135,25 +135,13 @@ const ClassWork = () => {
                   open={open}
                   onClose={handleClose}
                 >
-                  <ClassworkDialog />
+                  <ClassworkDialog type="Assignment" typeIcon={<AssignmentRoundedIcon />} />
 
-                  <MenuItem onClick={handleClose} disableRipple>
-                    <AssignmentRoundedIcon />
-                    Quiz Assignment
-                  </MenuItem>
-                  <MenuItem onClick={handleClose} disableRipple>
-                    <LiveHelpRoundedIcon />
-                    Question
-                  </MenuItem>
-                  <MenuItem onClick={handleClose} disableRipple>
-                    <LibraryBooksRoundedIcon />
-                    Material
-                  </MenuItem>
+                  <ClassworkDialog type="Quiz Assignment" typeIcon={<AssignmentRoundedIcon />} />
+                  <ClassworkDialog type="Question" typeIcon={<LiveHelpRoundedIcon />} />
+                  <ClassworkDialog type="Material" typeIcon={<LibraryBooksRoundedIcon />} />
                   <Divider sx={{ my: 0.5 }} />
-                  <MenuItem onClick={handleClose} disableRipple>
-                    <LocalPostOfficeRoundedIcon />
-                    Reuse-Post
-                  </MenuItem>
+                  <ClassworkDialog type="Reuse-Post" typeIcon={<LocalPostOfficeRoundedIcon />} />
                 </StyledMenu>
               </div>
               <Divider sx={{ my: 0.5 }} />

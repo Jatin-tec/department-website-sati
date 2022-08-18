@@ -14,15 +14,14 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import { pages } from "./pages";
 
-<<<<<<< HEAD
 
-=======
+
+
 function CopyToClipboard() {
   var copyText = "Hello";
   navigator.clipboard.writeText(copyText);
   alert("Copied the text:" + copyText);
 }
->>>>>>> 4007504568402986b870a764ad6965553a192c9c
 
 const Main = (props) => {
 
