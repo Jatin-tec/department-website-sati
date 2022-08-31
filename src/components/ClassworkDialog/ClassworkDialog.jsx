@@ -14,6 +14,8 @@ import { Avatar, TextField } from "@material-ui/core";
 import "./Style.css"
 import YouTubeIcon from '@mui/icons-material/YouTube';
 
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import MUIRichTextEditor from 'mui-rte'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -30,7 +32,9 @@ export function ClassworkDialog(props) {
     setOpen(false);
   };
 
-
+  const myTheme = createTheme({
+    // Set up your custom MUI theme here
+})
   return (
     <div>
       <MenuItem onClick={handleClickOpen} disableRipple>
@@ -82,14 +86,18 @@ export function ClassworkDialog(props) {
                 // value
                 // onChange={(e) => setInput(e.target.value)}
                 />
-                <TextField
+
+                <ThemeProvider theme={myTheme} >
+                  <MUIRichTextEditor label="Instructions (Optional)." controls={['bold', 'italic', 'underline', 'link', 'bulletList', 'numberList', 'code']} />
+                </ThemeProvider>
+                {/* <TextField
                   id="filled-multiline-flexible"
                   multiline
                   label="Instructions (optional)"
                   variant="filled"
                 // value
                 // onChange={(e) => setInput(e.target.value)}
-                />
+                /> */}
 
 
                 <div className="">
