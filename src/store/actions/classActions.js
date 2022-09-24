@@ -36,6 +36,7 @@ export const createClass = (classAbout) => {
                 class_name: className,
                 branch,
                 section,
+                students: [],
                 faculty_email
             }, {
                 headers: {
