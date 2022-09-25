@@ -20,6 +20,13 @@ import Divider from "@mui/material/Divider";
 import Box from "@mui/material/Box";
 import { Autocomplete } from "@mui/material";
 import Cookies from "js-cookie";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { Dayjs } from "dayjs/locale/fr";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -27,6 +34,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export function ClassworkDialog(props) {
   const [open, setOpen] = React.useState(false);
+  const [topic, setTopic] = React.useState("No Topic");
+  const [value, setValue] = React.useState(Dayjs);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -40,11 +49,18 @@ export function ClassworkDialog(props) {
     // Set up your custom MUI theme here
   });
 
-  const classes = [
-    { label: "AIADS" },
-    { label: "Computational Theory" },
-    { label: "Discrete Mathematics" },
-  ];
+  const styles = (theme) => ({
+    root: {
+      backgroundColor: "blue",
+      // Match [0, md)
+      //       [0, 900px)
+      [theme.breakpoints.down("md")]: {
+        backgroundColor: "red",
+      },
+    },
+  });
+
+  const topics = [{ label: "topic 1" }, { label: "topic 2" }];
 
   return (
     <div>
@@ -140,30 +156,69 @@ export function ClassworkDialog(props) {
             </div>
           </Grid>
           <Divider orientation="vertical" variant="middle" flexItem />
-          <Grid item xs={3}>
+          <Grid
+            item
+            sx={{
+              display: {
+                xs: "none",
+                sm: "none",
+                md: "none",
+                lg: "block",
+                xl: "block",
+              },
+            }}
+          >
             <Grid container sx={{ px: 5 }}>
-              <Grid container spacing={2} >
-                <Grid item xs={12} flexItem>
-                <h3>For</h3>
-                <Autocomplete
-                  disablePortal
-                  id="combo-box-demo"
-                  options={classes}
-                  sx={{ width: 150 }}
-                  renderInput={(params) => (
-                    <TextField {...params} label="Class" />
-                  )}
-                />
-                <Autocomplete
-                  disablePortal
-                  id="combo-box-demo"
-                  options={classes}
-                  sx={{ width: 100 }}
-                  renderInput={(params) => (
-                    <TextField {...params} label="" />
-                  )}
-                />
-
+              <Grid container spacing={2} sx={{ flexDirection: "column" }}>
+                <Grid item sx={{ my: 5 }}>
+                  <p>Points</p>
+                  <TextField
+                    inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }}
+                    id="marks"
+                    label="Marks"
+                    size="small"
+                    variant="filled"
+                  />
+                </Grid>
+                <Grid item sx={{ my: -2 }}>
+                  <p>Due</p>
+                  <LocalizationProvider
+                    dateAdapter={AdapterDayjs}
+                    adapterLocale={"fr"}
+                  >
+                    <DatePicker
+                      label=""
+                      value={value}
+                      onChange={(newValue) => {
+                        setValue(newValue);
+                      }}
+                      renderInput={(params) => <TextField {...params} />}
+                    />
+                  </LocalizationProvider>
+                </Grid>
+                <Grid item sx={{ my: 5 }}>
+                  <p>Topic</p>
+                  <Autocomplete
+                    disablePortal
+                    id="combo-box-demo"
+                    options={topics}
+                    // sx={{ width: 300 }}
+                    renderInput={(params) => <TextField {...params} label="" />}
+                  />
+                  <FormControl variant="filled">
+                    <Select
+                      labelId="simple-select-filled-label-topic"
+                      id="simple-select-filled-topic"
+                      value={topic}
+                      onChange={(e) => {
+                        setTopic(e.target.value);
+                      }}
+                    >
+                      <MenuItem value={10}>Ten</MenuItem>
+                      <MenuItem value={20}>Twenty</MenuItem>
+                      <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
+                  </FormControl>
                 </Grid>
               </Grid>
             </Grid>
