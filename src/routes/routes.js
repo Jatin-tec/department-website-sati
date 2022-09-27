@@ -9,7 +9,7 @@ import Main from "../pages/Main/Main"
 import People from "../pages/Peoples/Peoples"
 import DetailedPeople from "../pages/DetailedPeople/DetailedPeople"
 import ClassWork from "../pages/ClassWork/ClassWork"
-
+import GetAttendance from "../pages/GetAttendance/GetAttendance"
 
 const authProtectedRoutes = [
     { path:'/', component: Homepage },
@@ -21,7 +21,8 @@ const authProtectedRoutes = [
     { path:'/stream/:code', component: Main},
     { path:'/detailed-student', component: DetailedPeople},
     { path:'/detailed-student/:code', component: DetailedPeople},
-    { path:'/classwork/:code', component: ClassWork}
+    { path:'/classwork/:code', component: ClassWork},
+    { path: '/getattendance/:code', component: GetAttendance},
 
 ]
 
