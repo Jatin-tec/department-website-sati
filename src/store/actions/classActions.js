@@ -8,10 +8,8 @@ export const joinClass = (classCode) => {
         const state = getState();
         const email = state.auth.profile.email
         try {
-            const response = await axios.post('http://127.0.0.1:8000/student/student-classroom', {
-                "uid": uuid(),
-                "student": email,
-                "class_room": classCode
+            const response = await axios.patch(`http://127.0.0.1:8000/department/classroom/add-student/${classCode}`, {
+                "students": [email],
             })
             dispatch({ type: JOIN_CLASS, payload: response.data })
         } catch (err) {
