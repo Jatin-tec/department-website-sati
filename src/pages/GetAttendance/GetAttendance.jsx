@@ -1,11 +1,44 @@
+import React, { useEffect, useState } from "react";
 import MUIDataTable from "mui-datatables";
+import Avatar from '@mui/material/Avatar';
+import Button from "@material-ui/core/Button";
 
 
-export default function getattendance() {
-    const columns = ["Name", "Enrollment No.", "21/02/2022","22/02/2022", "23/02/2022", "24/02/2022", "25/02/2022"];
+
+const testing = (text, colour, handleChange) => {
+    return (
+        <div className="attendence-status">
+            <Button onClick={handleChange} variant="contained" color={colour}>
+                {text}
+            </Button>
+        </div>
+    )
+}
+
+export default function Getattendance() {
+
+    const [text, setText] = useState("Mark Present")
+    const [colour, changeColour] = useState("primary");
+    const [isPresent, toggelPresent] = useState(false);
+
+    useEffect(() => {
+        if (isPresent) {
+            setText("Mark Absent");
+            changeColour("secondary");
+        } else {
+            setText("Mark Present");
+            changeColour("primary");
+        }
+    }, [isPresent])
+
+    const handleChange = (event) => {
+        toggelPresent(!isPresent);
+    };
+
+    const columns = ["Name", "Enrollment No.", "21/02/2022", "22/02/2022", "23/02/2022", "24/02/2022", "25/02/2022"];
 
     const data = [
-        ["Joe James", "0108AI201017", "P", "A", 'P', 'A', 'P'],
+        ["Joe James", "0108AI201017", testing(text, colour, handleChange), "A", 'P', 'A', 'P'],
         ["dsf", "0108AI201017", "P", "A", 'P', 'A', 'P'],
         ["Jsdfames", "0108AI201017", "P", "A", 'P', 'A', 'P'],
         ["Joefd James", "0108AI201017", "P", "A", 'P', 'A', 'P'],
@@ -37,7 +70,7 @@ export default function getattendance() {
         ["Joe fJsdfgames", "0108AI201017", "P", "A", 'P', 'A', 'P'],
         ["Joe fdfgJames", "0108AI201017", "P", "A", 'P', 'A', 'P'],
         ["Joe gsdsdfgJames", "0108AI201017", "P", "A", 'P', 'A', 'P'],
-        
+
     ];
 
     const options = {
